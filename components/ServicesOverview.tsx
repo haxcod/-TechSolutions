@@ -53,7 +53,7 @@ export function ServicesOverview() {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             We offer comprehensive IT services to help your business thrive in the digital age. 
-            From web development to cloud solutions, we've got you covered.
+            From web development to cloud solutions, we&apos;ve got you covered.
           </p>
         </motion.div>
 

@@ -65,7 +65,7 @@ export function PortfolioHighlights() {
             Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Explore our recent projects and see how we've helped businesses 
+            Explore our recent projects and see how we&apos;ve helped businesses 
             transform their digital presence with innovative solutions.
           </p>
         </motion.div>

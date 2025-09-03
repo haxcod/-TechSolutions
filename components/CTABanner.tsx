@@ -24,11 +24,11 @@ export function CTABanner() {
           className="text-center text-white"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let's Build Your Project Together
+            Let&apos;s Build Your Project Together
           </h2>
           <p className="text-xl lg:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
             Ready to transform your business with cutting-edge technology? 
-            Get in touch with our experts and let's discuss your project.
+            Get in touch with our experts and let&apos;s discuss your project.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">

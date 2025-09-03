@@ -18,7 +18,7 @@ export function MapSection() {
             Visit Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Office</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Located in the heart of San Francisco's tech district, our office is easily 
+            Located in the heart of San Francisco&apos;s tech district, our office is easily 
             accessible and equipped with modern facilities for client meetings.
           </p>
         </motion.div>

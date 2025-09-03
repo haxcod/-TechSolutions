@@ -67,7 +67,7 @@ export function ContactForm() {
           </div>
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Message Sent Successfully!</h3>
           <p className="text-gray-600">
-            Thank you for contacting us. We'll get back to you within 24 hours.
+            Thank you for contacting us. We&apos;ll get back to you within 24 hours.
           </p>
         </motion.div>
       </div>
@@ -87,7 +87,7 @@ export function ContactForm() {
               Send us a Message
             </CardTitle>
             <p className="text-sm sm:text-base text-gray-600">
-              Fill out the form below and we'll get back to you as soon as possible.
+              Fill out the form below and we&apos;ll get back to you as soon as possible.
             </p>
           </CardHeader>
           <CardContent>

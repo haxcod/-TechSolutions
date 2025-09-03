@@ -30,8 +30,8 @@ export function ContactHero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed"
             >
-              Ready to start your next project? We'd love to hear from you. 
-              Get in touch with our team and let's discuss how we can help 
+              Ready to start your next project? We&apos;d love to hear from you. 
+              Get in touch with our team and let&apos;s discuss how we can help 
               bring your ideas to life.
             </motion.p>
 

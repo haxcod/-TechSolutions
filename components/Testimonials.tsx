@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Star, Quote } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 const testimonials = [
   {
@@ -100,7 +101,7 @@ export function Testimonials() {
             What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients 
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients 
             have to say about working with us.
           </p>
         </motion.div>
@@ -120,7 +121,7 @@ export function Testimonials() {
                   <Quote className="w-12 h-12 text-blue-500 mx-auto mb-6" />
                   
                   <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 italic">
-                    "{testimonials[currentIndex].content}"
+                    &quot;{testimonials[currentIndex].content}&quot;
                   </blockquote>
 
                   <div className="flex justify-center mb-6">
@@ -131,7 +132,7 @@ export function Testimonials() {
 
                   <div className="flex items-center justify-center space-x-4">
                     <div className="w-16 h-16 rounded-full overflow-hidden">
-                      <img
+                      <Image
                         src={testimonials[currentIndex].image}
                         alt={testimonials[currentIndex].name}
                         className="w-full h-full object-cover"

@@ -157,7 +157,7 @@ export function ProcessSection() {
               Ready to Start Your Project?
             </h3>
             <p className="text-xl text-gray-600 mb-8">
-              Let's discuss your requirements and create a custom solution that drives your business forward.
+              Let&apos;s discuss your requirements and create a custom solution that drives your business forward.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

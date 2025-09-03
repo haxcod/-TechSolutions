@@ -64,7 +64,7 @@ export function OurStory() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From humble beginnings to becoming a trusted technology partner, 
-            here's the story of our growth and achievements.
+            here&apos;s the story of our growth and achievements.
           </p>
         </motion.div>
 

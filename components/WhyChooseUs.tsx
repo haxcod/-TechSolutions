@@ -58,7 +58,7 @@ export function WhyChooseUs() {
             Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Us?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're not just another IT company. We're your technology partners, 
+            We&quot;re not just another IT company. We&quot;re your technology partners, 
             committed to delivering exceptional results that drive your business forward.
           </p>
         </motion.div>
