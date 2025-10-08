@@ -164,6 +164,7 @@ export function PortfolioGrid() {
           <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => setViewMode('grid')}
+              aria-label="Grid view"
               className={`p-2 rounded-md transition-colors ${
                 viewMode === 'grid' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
               }`}
@@ -172,6 +173,7 @@ export function PortfolioGrid() {
             </button>
             <button
               onClick={() => setViewMode('list')}
+              aria-label="List view"
               className={`p-2 rounded-md transition-colors ${
                 viewMode === 'list' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
               }`}
@@ -239,9 +241,9 @@ export function PortfolioGrid() {
                     </div>
                     
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">
+                      <h2 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors">
                         {project.title}
-                      </h3>
+                      </h2>
                       
                       <p className="text-gray-600 mb-4 leading-relaxed">
                         {project.description}

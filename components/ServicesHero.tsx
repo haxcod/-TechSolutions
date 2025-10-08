@@ -141,7 +141,7 @@ export function ServicesHero() {
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-lg font-semibold text-gray-800">{service.title}</h3>
+                      <h2 className="text-lg font-semibold text-gray-800">{service.title}</h2>
                       <span className="text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
                         {service.percentage}
                       </span>

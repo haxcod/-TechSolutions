@@ -43,7 +43,7 @@ export function AboutHero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="bg-white p-6 rounded-xl shadow-lg"
             >
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Mission</h3>
+              <h2 className="text-xl font-semibold mb-3 text-gray-800">Our Mission</h2>
               <p className="text-gray-600">
                 To empower businesses with innovative technology solutions that enhance 
                 productivity, improve user experiences, and drive sustainable growth in 
@@ -133,7 +133,7 @@ export function AboutHero() {
               transition={{ duration: 0.8, delay: 1.4 }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white"
             >
-              <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
+              <h2 className="text-xl font-semibold mb-3">Our Vision</h2>
               <p className="opacity-90">
                 To be the leading technology partner for businesses worldwide, 
                 recognized for our innovation, reliability, and commitment to 

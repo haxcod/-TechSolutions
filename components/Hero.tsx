@@ -125,7 +125,7 @@ export function Hero() {
                   <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto flex items-center justify-center">
                     <span className="text-white text-3xl font-bold">IT</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-800">Modern Solutions</h3>
+                  <h2 className="text-2xl font-semibold text-gray-800">Modern Solutions</h2>
                   <p className="text-gray-600">Building the future of technology</p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export function Hero() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg"
               >
                 <span className="text-white font-bold text-xs sm:text-sm">Web</span>
               </motion.div>
@@ -142,7 +142,7 @@ export function Hero() {
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-purple-500 rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-purple-600 rounded-full flex items-center justify-center shadow-lg"
               >
                 <span className="text-white font-bold text-xs sm:text-sm">App</span>
               </motion.div>

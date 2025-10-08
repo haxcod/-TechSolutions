@@ -111,18 +111,21 @@ export function TeamSection() {
                   <div className="flex justify-center space-x-3">
                     <a
                       href={member.linkedin}
+                      aria-label={`${member.name}'s LinkedIn profile`}
                       className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
                     >
                       <Linkedin className="w-4 h-4" />
                     </a>
                     <a
                       href={member.twitter}
+                      aria-label={`${member.name}'s Twitter profile`}
                       className="w-8 h-8 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors"
                     >
                       <Twitter className="w-4 h-4" />
                     </a>
                     <a
                       href={member.github}
+                      aria-label={`${member.name}'s GitHub profile`}
                       className="w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors"
                     >
                       <Github className="w-4 h-4" />

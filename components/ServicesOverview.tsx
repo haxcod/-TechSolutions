@@ -87,7 +87,7 @@ export function ServicesOverview() {
                   </ul>
                   <Link href="/services">
                     <Button variant="outline" className="w-full group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors">
-                      Learn More
+                      Learn More About {service.title}
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
