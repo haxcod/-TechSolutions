@@ -165,19 +165,22 @@ const nextConfig = {
   output: 'standalone',
 
   // Experimental features to help with build traces
-  experimental: {
-    outputFileTracingExcludes: {
-      '*': [
-        'node_modules/@swc/core-linux-x64-gnu',
-        'node_modules/@swc/core-linux-x64-musl', 
-        'node_modules/@esbuild/linux-x64',
-        'node_modules/sharp/vendor/**/*',
-        '.git/**/*',
-        '.next/cache/**/*',
-        'lighthouse-report*.json',
-      ],
-    },
+ experimental: {
+  outputFileTracingExcludes: {
+    '*': [
+      'node_modules/**',
+      '.next/**',
+      'public/**',
+      '.git/**',
+      'lighthouse-report*.json',
+      'node_modules/@swc/core-linux-x64-gnu',
+      'node_modules/@swc/core-linux-x64-musl',
+      'node_modules/@esbuild/linux-x64',
+      'node_modules/sharp/vendor/**',
+    ],
   },
+},
+
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
