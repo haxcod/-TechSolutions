@@ -61,7 +61,7 @@ export default function CookiePolicy() {
                   <p className="text-gray-700 mb-4">
                     These cookies help us understand how visitors interact with our website by 
                     collecting and reporting information anonymously. This helps us improve our 
-                    website's performance.
+                    website&apos;s performance.
                   </p>
                 </div>
 
