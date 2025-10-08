@@ -163,6 +163,21 @@ const nextConfig = {
 
   // Output configuration
   output: 'standalone',
+
+  // Experimental features to help with build traces
+  experimental: {
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl', 
+        'node_modules/@esbuild/linux-x64',
+        'node_modules/sharp/vendor/**/*',
+        '.git/**/*',
+        '.next/cache/**/*',
+        'lighthouse-report*.json',
+      ],
+    },
+  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
