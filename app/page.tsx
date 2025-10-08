@@ -3,9 +3,15 @@ import { Hero } from '@/components/Hero'
 import { ServicesOverview } from '@/components/ServicesOverview'
 import { PerformanceOptimizer } from '@/components/PerformanceOptimizer'
 import { StructuredData } from '@/components/StructuredData'
+import { StatsSection } from '@/components/StatsSection'
 
 // Dynamic imports for heavy components with framer-motion and swiper
 const WhyChooseUs = dynamic(() => import('@/components/WhyChooseUs').then(mod => ({ default: mod.WhyChooseUs })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const TechnologiesSection = dynamic(() => import('@/components/TechnologiesSection').then(mod => ({ default: mod.TechnologiesSection })), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
   ssr: false
 })
@@ -15,7 +21,17 @@ const PortfolioHighlights = dynamic(() => import('@/components/PortfolioHighligh
   ssr: false
 })
 
+const TeamPreview = dynamic(() => import('@/components/TeamPreview').then(mod => ({ default: mod.TeamPreview })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
 const Testimonials = dynamic(() => import('@/components/Testimonials').then(mod => ({ default: mod.Testimonials })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const BlogPreview = dynamic(() => import('@/components/BlogPreview').then(mod => ({ default: mod.BlogPreview })), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
   ssr: false
 })
@@ -31,9 +47,13 @@ export default function Home() {
       <PerformanceOptimizer />
       <Hero />
       <ServicesOverview />
+      <StatsSection />
       <WhyChooseUs />
+      <TechnologiesSection />
       <PortfolioHighlights />
+      <TeamPreview />
       <Testimonials />
+      <BlogPreview />
       <CTABanner />
       
       {/* FAQ Structured Data */}

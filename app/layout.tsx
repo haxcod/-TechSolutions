@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Navbar } from '@/components/Navbar'
+import Navbar  from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { StructuredData } from '@/components/StructuredData'
 
@@ -108,11 +108,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains for faster loading */}
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://picsum.photos" />
-        
-        {/* DNS prefetch for external resources */}
+        {/* DNS prefetch for external resources (lighter than preconnect for non-critical resources) */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
         

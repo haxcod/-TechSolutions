@@ -102,6 +102,7 @@ export function Testimonials() {
             }}
             pagination={{
               clickable: true,
+              el: '.swiper-pagination-testimonials',
               bulletClass: 'swiper-pagination-bullet-custom',
               bulletActiveClass: 'swiper-pagination-bullet-active-custom',
             }}
@@ -161,26 +162,29 @@ export function Testimonials() {
               </SwiperSlide>
             ))}
 
-                      {/* Custom Navigation Buttons */}
-          <div className="flex justify-center items-center space-x-4">
-            <button
-              className="swiper-button-prev-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
-              aria-label="Previous testimonial"
-            >
-              <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+            {/* Custom Navigation with Pagination */}
+            <div className="flex justify-center items-center mt-4">
+              <button
+                className="swiper-button-prev-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
+                aria-label="Previous testimonial"
+              >
+                <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-            <button
-              className="swiper-button-next-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
-              aria-label="Next testimonial"
-            >
-              <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+              {/* Custom Pagination */}
+              <div className="swiper-pagination-testimonials flex-1 max-w-xs"></div>
+
+              <button
+                className="swiper-button-next-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
+                aria-label="Next testimonial"
+              >
+                <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </Swiper>
 
 
@@ -188,30 +192,37 @@ export function Testimonials() {
       </div>
 
       <style jsx global>{`
+        .swiper-pagination-testimonials {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          margin: 0 !important;
+          gap: 8px !important;
+          min-height: 40px !important;
+        }
+        
         .testimonials-swiper .swiper-pagination {
           position: relative !important;
           margin-top: 2rem;
         }
         
         .swiper-pagination-bullet-custom {
-          width: 12px;
-          height: 12px;
-          background: #d1d5db;
-          border-radius: 50%;
-          opacity: 1;
-          margin: 0 4px;
-          cursor: pointer;
-          transition: all 0.2s ease;
+          width: 35px !important;
+          height: 7px !important;
+          background: #d1d5db !important;
+          border-radius: 6px !important;
+          opacity: 1 !important;
+          margin: 0 4px !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
         }
         
         .swiper-pagination-bullet-custom:hover {
-          background: #9ca3af;
-          transform: scale(1.1);
+          background: #9ca3af !important;
         }
         
         .swiper-pagination-bullet-active-custom {
-          background: #2563eb !important;
-          transform: scale(1.25);
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
         }
         
         .testimonials-swiper {
