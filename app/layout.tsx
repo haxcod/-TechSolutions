@@ -5,7 +5,11 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { StructuredData } from '@/components/StructuredData'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter' 
+})
 
 export const metadata: Metadata = {
   title: {
@@ -104,10 +108,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://picsum.photos" />
+        
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://picsum.photos" />
+        
+        {/* Preload critical resources */}
+        {/* <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+         */}
         <StructuredData type="organization" />
         <StructuredData type="website" />
       </head>
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} ${inter.variable}`}>
         <Navbar />
         <main className="min-h-screen">
           {children}

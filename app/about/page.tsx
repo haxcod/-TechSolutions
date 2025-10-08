@@ -1,8 +1,22 @@
+import dynamic from 'next/dynamic'
 import { AboutHero } from '@/components/AboutHero'
 import { OurStory } from '@/components/OurStory'
-import { TeamSection } from '@/components/TeamSection'
-import { ValuesSection } from '@/components/ValuesSection'
-import { CTABanner } from '@/components/CTABanner'
+
+// Dynamic imports for heavy components with framer-motion
+const TeamSection = dynamic(() => import('@/components/TeamSection').then(mod => ({ default: mod.TeamSection })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const ValuesSection = dynamic(() => import('@/components/ValuesSection').then(mod => ({ default: mod.ValuesSection })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ default: mod.CTABanner })), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
 
 export const metadata = {
   title: 'About Us - IT Services Company | Haxcod Inc',

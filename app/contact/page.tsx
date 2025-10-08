@@ -1,7 +1,21 @@
+import dynamic from 'next/dynamic'
 import { ContactHero } from '@/components/ContactHero'
-import { ContactForm } from '@/components/ContactForm'
-import { ContactInfo } from '@/components/ContactInfo'
-import { MapSection } from '@/components/MapSection'
+
+// Dynamic imports for heavy components with framer-motion
+const ContactForm = dynamic(() => import('@/components/ContactForm').then(mod => ({ default: mod.ContactForm })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const ContactInfo = dynamic(() => import('@/components/ContactInfo').then(mod => ({ default: mod.ContactInfo })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
+
+const MapSection = dynamic(() => import('@/components/MapSection').then(mod => ({ default: mod.MapSection })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
+  ssr: false
+})
 
 export const metadata = {
   title: 'Contact Us - Get in Touch | Haxcod Inc',
