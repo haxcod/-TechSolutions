@@ -15,7 +15,7 @@ export function CTABanner() {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export function CTABanner() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg"
+                className="border-white text-blue-600 hover:bg-white hover:text-blue-600 px-8 py-4 text-lg"
               >
                 <Phone className="mr-2 w-5 h-5" />
                 Call Now
@@ -82,7 +82,7 @@ export function CTABanner() {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Email Us</h3>
-              <p className="opacity-90">info@itservices.com</p>
+              <p className="opacity-90">info@haxcod.com</p>
               <p className="text-sm opacity-75">Response within 2 hours</p>
             </motion.div>
 

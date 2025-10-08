@@ -5,8 +5,8 @@ import { ValuesSection } from '@/components/ValuesSection'
 import { CTABanner } from '@/components/CTABanner'
 
 export const metadata = {
-  title: 'About Us - IT Services Company | TechSolutions',
-  description: 'Learn about TechSolutions, a leading IT services company specializing in web development, mobile apps, and cloud solutions. Meet our expert team and discover our mission.',
+  title: 'About Us - IT Services Company | Haxcod Inc',
+  description: 'Learn about Haxcod Inc, a leading IT services company specializing in web development, mobile apps, and cloud solutions. Meet our expert team and discover our mission.',
 }
 
 export default function About() {

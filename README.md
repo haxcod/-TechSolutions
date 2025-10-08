@@ -1,6 +1,6 @@
-# IT Services Website
+# Haxcod Inc - IT Services Website
 
-A modern, responsive IT Services website built with Next.js, Tailwind CSS, and Framer Motion.
+A modern, responsive IT Services website built with Next.js, Tailwind CSS, and Framer Motion for Haxcod Inc.
 
 ## 🚀 Features
 
@@ -57,7 +57,7 @@ A modern, responsive IT Services website built with Next.js, Tailwind CSS, and F
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd it-services-website
+cd haxcod-website
 ```
 
 2. Install dependencies:
@@ -152,8 +152,8 @@ This project is licensed under the MIT License.
 
 ## 📞 Support
 
-For support, email info@itservices.com or call +1 (555) 123-4567.
+For support, email info@haxcod.com or call +1 (555) 123-4567.
 
 ---
 
-Built with ❤️ by TechSolutions
+Built with ❤️ by Haxcod Inc

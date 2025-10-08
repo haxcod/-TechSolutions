@@ -17,7 +17,7 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Support',
     description: 'Send us an email anytime',
-    contact: 'info@itservices.com',
+    contact: 'info@haxcod.com',
     availability: 'Response within 2 hours',
     color: 'from-purple-500 to-purple-600'
   },
@@ -59,12 +59,12 @@ const whyChooseUs = [
 
 export function ContactInfo() {
   return (
-    <div className="bg-white p-4 sm:p-6 lg:p-12">
+    <div className="bg-white p-4 sm:p-6 lg:p-12 overflow-hidden contact-info-container">
       <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="space-y-8 sm:space-y-12"
+        className="space-y-8 sm:space-y-12 w-full"
       >
         {/* Contact Methods */}
         <div>

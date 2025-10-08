@@ -59,7 +59,7 @@ export function Navbar() {
             </div>
             <div className="hidden sm:flex items-center space-x-1">
               <Mail className="w-4 h-4" />
-              <span>info@itservices.com</span>
+              <span>info@haxcod.com</span>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
@@ -77,7 +77,7 @@ export function Navbar() {
               <span className="text-white font-bold text-lg sm:text-xl">IT</span>
             </div>
             <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              TechSolutions
+              Haxcod Inc
             </span>
           </Link>
 

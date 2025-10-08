@@ -75,11 +75,12 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 sm:p-6 lg:p-12">
+    <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 sm:p-6 lg:p-12 overflow-hidden contact-form-container">
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        className="w-full"
       >
         <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
           <CardHeader>

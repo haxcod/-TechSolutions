@@ -5,8 +5,8 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 
 export function MapSection() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gray-50 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,11 +26,11 @@ export function MapSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Map Placeholder */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative w-full"
           >
             <div className="h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden">
               {/* Map placeholder with decorative elements */}
@@ -53,11 +53,11 @@ export function MapSection() {
 
           {/* Office Information */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 w-full"
           >
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
@@ -94,7 +94,7 @@ export function MapSection() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
                   <p className="text-gray-600">
-                    info@itservices.com<br />
+                    info@haxcod.com<br />
                     <span className="text-sm text-gray-500">Response within 2 hours</span>
                   </p>
                 </div>

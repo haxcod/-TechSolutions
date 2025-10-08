@@ -5,15 +5,15 @@ import { CheckCircle, Users, Award, Target } from 'lucide-react'
 
 export function AboutHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-8 w-full"
           >
             <div className="space-y-4">
               <motion.h1
@@ -22,7 +22,7 @@ export function AboutHero() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
               >
-                About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">TechSolutions</span>
+                About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Haxcod Inc</span>
               </motion.h1>
               
               <motion.p
@@ -74,10 +74,10 @@ export function AboutHero() {
 
           {/* Right Content - Stats */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
+            className="space-y-8 w-full"
           >
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-6">

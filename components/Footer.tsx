@@ -12,7 +12,7 @@ export function Footer() {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">IT</span>
               </div>
-              <span className="text-2xl font-bold">TechSolutions</span>
+              <span className="text-2xl font-bold">Haxcod Inc</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               We build scalable web and mobile solutions that drive business growth. 
@@ -115,7 +115,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300 text-sm">info@itservices.com</span>
+                <span className="text-gray-300 text-sm">info@haxcod.com</span>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2024 TechSolutions. All rights reserved.
+              © 2024 Haxcod Inc. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">

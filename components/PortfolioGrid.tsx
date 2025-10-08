@@ -128,7 +128,7 @@ export function PortfolioGrid() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full max-w-7xl mx-auto px-4">
         {/* Filters and View Controls */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

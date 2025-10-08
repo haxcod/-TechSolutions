@@ -4,8 +4,8 @@ import { ContactInfo } from '@/components/ContactInfo'
 import { MapSection } from '@/components/MapSection'
 
 export const metadata = {
-  title: 'Contact Us - Get in Touch | TechSolutions',
-  description: 'Contact TechSolutions for your web development, mobile app development, and cloud solution needs. Get a free consultation and quote today.',
+  title: 'Contact Us - Get in Touch | Haxcod Inc',
+  description: 'Contact Haxcod Inc for your web development, mobile app development, and cloud solution needs. Get a free consultation and quote today.',
 }
 
 export default function Contact() {

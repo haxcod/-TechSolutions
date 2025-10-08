@@ -2,20 +2,20 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, Globe, Smartphone, Cloud, Users } from 'lucide-react'
 import Link from 'next/link'
 
 export function ServicesHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-8 w-full"
           >
             <div className="space-y-4">
               <motion.h1
@@ -81,35 +81,47 @@ export function ServicesHero() {
 
           {/* Right Content - Service Categories */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 w-full"
           >
             {[
               {
                 title: 'Web Development',
                 description: 'Modern, responsive websites and web applications',
                 percentage: '95%',
-                color: 'from-blue-500 to-blue-600'
+                color: 'from-blue-500 to-blue-600',
+                icon: Globe,
+                bgColor: 'bg-blue-50',
+                iconColor: 'text-blue-600'
               },
               {
                 title: 'Mobile Development',
                 description: 'Native and cross-platform mobile applications',
                 percentage: '90%',
-                color: 'from-purple-500 to-purple-600'
+                color: 'from-purple-500 to-purple-600',
+                icon: Smartphone,
+                bgColor: 'bg-purple-50',
+                iconColor: 'text-purple-600'
               },
               {
                 title: 'Cloud Solutions',
                 description: 'Scalable cloud infrastructure and deployment',
                 percentage: '88%',
-                color: 'from-green-500 to-green-600'
+                color: 'from-green-500 to-green-600',
+                icon: Cloud,
+                bgColor: 'bg-green-50',
+                iconColor: 'text-green-600'
               },
               {
                 title: 'IT Consulting',
                 description: 'Strategic technology planning and implementation',
                 percentage: '92%',
-                color: 'from-orange-500 to-orange-600'
+                color: 'from-orange-500 to-orange-600',
+                icon: Users,
+                bgColor: 'bg-orange-50',
+                iconColor: 'text-orange-600'
               }
             ].map((service, index) => (
               <motion.div
@@ -117,18 +129,33 @@ export function ServicesHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg"
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
               >
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-lg font-semibold text-gray-800">{service.title}</h3>
-                  <span className="text-2xl font-bold text-gray-600">{service.percentage}</span>
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className={`p-3 rounded-lg ${service.bgColor}`}>
+                    <service.icon className={`w-6 h-6 ${service.iconColor}`} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-lg font-semibold text-gray-800">{service.title}</h3>
+                      <span className="text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+                        {service.percentage}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                  </div>
                 </div>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className={`h-2 bg-gradient-to-r ${service.color} rounded-full transition-all duration-1000 delay-${index * 200}`}
-                    style={{ width: service.percentage }}
-                  ></div>
+                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <motion.div 
+                    className={`h-3 bg-gradient-to-r ${service.color} rounded-full`}
+                    initial={{ width: 0 }}
+                    animate={{ width: service.percentage }}
+                    transition={{ duration: 1.5, delay: 0.8 + index * 0.2, ease: "easeOut" }}
+                  />
                 </div>
               </motion.div>
             ))}

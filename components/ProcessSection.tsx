@@ -75,7 +75,7 @@ const processSteps = [
 export function ProcessSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4">
+      <div className="w-full max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,9 +94,9 @@ export function ProcessSection() {
 
         <div className="relative">
           {/* Process Timeline Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-purple-200 via-green-200 via-orange-200 to-indigo-200 transform -translate-y-1/2"></div>
+          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-1 bg-gradient-to-b from-blue-200 via-purple-200 via-green-200 via-orange-200 to-indigo-200 transform -translate-x-1/2"></div>
 
-          <div className="space-y-12 lg:space-y-0">
+          <div className="space-y-16 lg:space-y-24">
             {processSteps.map((step, index) => (
               <motion.div
                 key={step.step}
@@ -106,7 +106,8 @@ export function ProcessSection() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
+                {/* Mobile Layout */}
+                <div className="flex flex-col items-center space-y-6 lg:hidden">
                   {/* Step Number and Icon */}
                   <div className="flex flex-col items-center space-y-4">
                     <div className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg relative z-10`}>
@@ -116,7 +117,7 @@ export function ProcessSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 max-w-2xl">
+                  <div className="w-full max-w-md">
                     <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
                       <CardHeader>
                         <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
@@ -137,6 +138,73 @@ export function ProcessSection() {
                         </div>
                       </CardContent>
                     </Card>
+                  </div>
+                </div>
+
+                {/* Desktop Layout - Alternating */}
+                <div className="hidden lg:block">
+                  <div className="flex items-center justify-between w-full">
+                    {/* Left Side Content (for even indices) */}
+                    <div className="w-5/12 flex justify-start">
+                      {index % 2 === 0 && (
+                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm max-w-md w-full">
+                          <CardHeader>
+                            <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
+                              {step.title}
+                            </CardTitle>
+                            <p className="text-gray-600 text-lg leading-relaxed">
+                              {step.description}
+                            </p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-2">
+                              {step.details.map((detail, detailIndex) => (
+                                <div key={detailIndex} className="flex items-center space-x-3">
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                  <span className="text-gray-700">{detail}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </div>
+
+                    {/* Center Icon */}
+                    <div className="w-2/12 flex justify-center relative z-10">
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg`}>
+                          <step.icon className="w-10 h-10 text-white" />
+                        </div>
+                        <div className="text-2xl font-bold text-gray-400 bg-white px-2 py-1 rounded">{step.step}</div>
+                      </div>
+                    </div>
+
+                    {/* Right Side Content (for odd indices) */}
+                    <div className="w-5/12 flex justify-end">
+                      {index % 2 === 1 && (
+                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm max-w-md w-full">
+                          <CardHeader>
+                            <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
+                              {step.title}
+                            </CardTitle>
+                            <p className="text-gray-600 text-lg leading-relaxed">
+                              {step.description}
+                            </p>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-2">
+                              {step.details.map((detail, detailIndex) => (
+                                <div key={detailIndex} className="flex items-center space-x-3">
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                  <span className="text-gray-700">{detail}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>

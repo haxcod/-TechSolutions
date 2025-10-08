@@ -6,8 +6,8 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 export function ContactHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export function ContactHero() {
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
                 <div>
                   <div className="font-semibold text-gray-800 text-sm sm:text-base">Email Us</div>
-                  <div className="text-xs sm:text-sm text-gray-600">info@itservices.com</div>
+                  <div className="text-xs sm:text-sm text-gray-600">info@haxcod.com</div>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export function ContactHero() {
                   Call Now
                 </Button>
               </a>
-              <a href="mailto:info@itservices.com">
+              <a href="mailto:info@haxcod.com">
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
                   <Mail className="mr-2 w-5 h-5" />
                   Send Email

@@ -3,29 +3,97 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { StructuredData } from '@/components/StructuredData'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'IT Services - Web & Mobile Development Solutions',
-  description: 'Professional IT services including web development, mobile app development, cloud solutions, and IT consulting. We build scalable solutions for your business.',
-  keywords: 'web development, mobile app development, IT consulting, cloud solutions, software development',
-  authors: [{ name: 'IT Services Team' }],
+  title: {
+    default: 'Haxcod Inc - Leading IT Services & Software Development Company',
+    template: '%s | Haxcod Inc - IT Services & Software Development'
+  },
+  description: 'Haxcod Inc is a premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction. Get your free consultation today!',
+  keywords: [
+    'IT services company',
+    'web development services',
+    'mobile app development',
+    'cloud solutions',
+    'software development',
+    'digital transformation',
+    'IT consulting',
+    'custom software development',
+    'e-commerce development',
+    'react development',
+    'next.js development',
+    'node.js development',
+    'aws cloud services',
+    'azure cloud solutions',
+    'devops services',
+    'ui ux design',
+    'tech solutions',
+    'software company',
+    'app development company',
+    'web design company'
+  ],
+  authors: [{ name: 'Haxcod Inc Team', url: 'https://haxcod.com' }],
+  creator: 'Haxcod Inc',
+  publisher: 'Haxcod Inc',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://haxcod.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'en-GB': '/en-GB',
+    },
+  },
   openGraph: {
-    title: 'IT Services - Web & Mobile Development Solutions',
-    description: 'Professional IT services including web development, mobile app development, cloud solutions, and IT consulting.',
     type: 'website',
     locale: 'en_US',
+    url: 'https://haxcod.com',
+    siteName: 'Haxcod Inc',
+    title: 'Haxcod Inc - Leading IT Services & Software Development Company',
+    description: 'Premier IT services company specializing in web development, mobile apps, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Haxcod Inc - IT Services & Software Development',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IT Services - Web & Mobile Development Solutions',
-    description: 'Professional IT services including web development, mobile app development, cloud solutions, and IT consulting.',
+    site: '@haxcod',
+    creator: '@haxcod',
+    title: 'Haxcod Inc - Leading IT Services & Software Development Company',
+    description: 'Premier IT services company specializing in web development, mobile apps, cloud solutions, and digital transformation.',
+    images: ['/twitter-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  verification: {
+    google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+  },
+  category: 'technology',
 }
 
 export default function RootLayout({
@@ -35,7 +103,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <StructuredData type="organization" />
+        <StructuredData type="website" />
+      </head>
+      <body className={`${inter.className}`}>
         <Navbar />
         <main className="min-h-screen">
           {children}

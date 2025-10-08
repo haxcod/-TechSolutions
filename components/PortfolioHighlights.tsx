@@ -70,7 +70,7 @@ export function PortfolioHighlights() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -78,48 +78,54 @@ export function PortfolioHighlights() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="w-full"
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg overflow-hidden max-w-lg mx-auto">
+                <div className="relative h-40 sm:h-48 lg:h-52 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs sm:text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
                 </div>
                 
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-600">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg sm:text-xl font-semibold line-clamp-2">{project.title}</CardTitle>
+                  <CardDescription className="text-gray-600 text-sm sm:text-base line-clamp-3">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="pt-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
+                <CardContent className="pt-0 pb-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                    {project.tech.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs sm:text-sm"
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 3 && (
+                      <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs sm:text-sm">
+                        +{project.tech.length - 3}
+                      </span>
+                    )}
                   </div>
                   
-                  <div className="flex space-x-3">
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                  <div className="flex space-x-2 sm:space-x-3">
+                    <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm">
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                       View Project
                     </Button>
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <Github className="w-4 h-4 mr-2" />
+                    <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm">
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                       Code
                     </Button>
                   </div>
