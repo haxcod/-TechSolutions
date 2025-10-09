@@ -28,9 +28,7 @@ function copyDir(src, dest) {
 // Copy static assets to standalone build
 const staticSrc = path.join(__dirname, '..', '.next', 'static');
 const staticDest = path.join(__dirname, '..', '.next', 'standalone', '.next', 'static');
-const nestedStaticDest = path.join(__dirname, '..', '.next', 'standalone', 'haxcod', 'it-services-website', '.next', 'static');
 
 copyDir(staticSrc, staticDest);
-copyDir(staticSrc, nestedStaticDest);
 
-console.log('All static assets copied successfully!');
+console.log('Static assets copied successfully!');

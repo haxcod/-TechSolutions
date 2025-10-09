@@ -8,8 +8,8 @@
     "clean": "rimraf .next",
     "build": "npm run clean && next build && npm run copy-standalone",
     "copy-standalone": "node scripts/copy-static.js",
-    "start": "node .next/standalone/haxcod/it-services-website/server.js",
-    "start:prod": "NODE_ENV=production node .next/standalone/haxcod/it-services-website/server.js",
+    "start": "node .next/standalone/server.js",
+    "start:prod": "NODE_ENV=production node .next/standalone/server.js",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",
     "build:analyze": "cross-env ANALYZE=true npm run build"
