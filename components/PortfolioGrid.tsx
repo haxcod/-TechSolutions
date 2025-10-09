@@ -151,7 +151,7 @@ export function PortfolioGrid() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
                     selectedCategory === category
                       ? 'bg-blue-600 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-sm'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-xs'
                   }`}
                 >
                   {category} ({count})
@@ -166,7 +166,7 @@ export function PortfolioGrid() {
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'grid' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
+                viewMode === 'grid' ? 'bg-white shadow-xs' : 'hover:bg-gray-200'
               }`}
             >
               <Grid className="w-4 h-4" />
@@ -175,7 +175,7 @@ export function PortfolioGrid() {
               onClick={() => setViewMode('list')}
               aria-label="List view"
               className={`p-2 rounded-md transition-colors ${
-                viewMode === 'list' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
+                viewMode === 'list' ? 'bg-white shadow-xs' : 'hover:bg-gray-200'
               }`}
             >
               <List className="w-4 h-4" />

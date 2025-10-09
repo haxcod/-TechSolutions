@@ -62,7 +62,7 @@ export function PortfolioHighlights() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
+            Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Explore our recent projects and see how we&apos;ve helped businesses 
@@ -143,7 +143,7 @@ export function PortfolioHighlights() {
           className="text-center mt-12"
         >
           <Link href="/portfolio">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4">
+            <Button size="lg" className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4">
               View All Projects
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

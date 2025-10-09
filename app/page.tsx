@@ -7,38 +7,31 @@ import { StatsSection } from '@/components/StatsSection'
 
 // Dynamic imports for heavy components with framer-motion and swiper
 const WhyChooseUs = dynamic(() => import('@/components/WhyChooseUs').then(mod => ({ default: mod.WhyChooseUs })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const TechnologiesSection = dynamic(() => import('@/components/TechnologiesSection').then(mod => ({ default: mod.TechnologiesSection })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const PortfolioHighlights = dynamic(() => import('@/components/PortfolioHighlights').then(mod => ({ default: mod.PortfolioHighlights })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const TeamPreview = dynamic(() => import('@/components/TeamPreview').then(mod => ({ default: mod.TeamPreview })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const Testimonials = dynamic(() => import('@/components/Testimonials').then(mod => ({ default: mod.Testimonials })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const BlogPreview = dynamic(() => import('@/components/BlogPreview').then(mod => ({ default: mod.BlogPreview })), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ default: mod.CTABanner })), {
-  loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />,
-  ssr: false
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
 export default function Home() {

@@ -5,15 +5,16 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Home, ArrowLeft, Search, Mail, Phone } from 'lucide-react'
+import { getCompanyName } from '@/config/contact'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-32">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-32">
       <div className="max-w-4xl mx-auto text-center">
         {/* 404 Animation */}
         <div className="mb-8">
           <div className="relative">
-            <h1 className="text-9xl md:text-[12rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 leading-none">
+            <h1 className="text-9xl md:text-[12rem] font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 leading-none">
               404
             </h1>
             <div className="absolute inset-0 text-9xl md:text-[12rem] font-bold text-blue-100 -z-10 transform translate-x-2 translate-y-2">
@@ -38,7 +39,7 @@ export default function NotFound() {
           <Link href="/">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <Home className="w-5 h-5 mr-2" />
               Back to Home
@@ -59,9 +60,9 @@ export default function NotFound() {
 
         {/* Quick Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-sm">
+          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-xs">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-linear-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Home className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Home</h3>
@@ -76,9 +77,9 @@ export default function NotFound() {
             </div>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-sm">
+          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-xs">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-linear-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Services</h3>
@@ -93,9 +94,9 @@ export default function NotFound() {
             </div>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-sm">
+          <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-0 bg-white/80 backdrop-blur-xs">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-linear-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Contact</h3>
@@ -112,7 +113,7 @@ export default function NotFound() {
         </div>
 
         {/* Help Section */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+        <div className="bg-white/60 backdrop-blur-xs rounded-2xl p-8 border border-white/20">
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Need Help Finding Something?
           </h3>
@@ -145,7 +146,7 @@ export default function NotFound() {
           <p className="text-gray-500 text-sm">
             Error Code: 404 | Page Not Found | 
             <Link href="/" className="text-blue-600 hover:text-blue-700 ml-1">
-              Return to Haxcod Inc
+              Return to {getCompanyName('name')}
             </Link>
           </p>
         </div>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Search, Lightbulb, Code, Rocket, CheckCircle } from 'lucide-react'
+import { getPhoneNumber } from '@/config/contact'
 
 const processSteps = [
   {
@@ -74,7 +75,7 @@ const processSteps = [
 
 export function ProcessSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-linear-to-br from-gray-50 to-blue-50">
       <div className="w-full max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +85,7 @@ export function ProcessSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Process</span>
+            Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Process</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We follow a proven development process that ensures quality, 
@@ -94,7 +95,7 @@ export function ProcessSection() {
 
         <div className="relative">
           {/* Process Timeline Line */}
-          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-1 bg-gradient-to-b from-blue-200 via-purple-200 via-green-200 via-orange-200 to-indigo-200 transform -translate-x-1/2"></div>
+          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-1 bg-linear-to-b from-blue-200 via-purple-200 via-green-200 via-orange-200 to-indigo-200 transform -translate-x-1/2"></div>
 
           <div className="space-y-16 lg:space-y-24">
             {processSteps.map((step, index) => (
@@ -110,7 +111,7 @@ export function ProcessSection() {
                 <div className="flex flex-col items-center space-y-6 lg:hidden">
                   {/* Step Number and Icon */}
                   <div className="flex flex-col items-center space-y-4">
-                    <div className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg relative z-10`}>
+                    <div className={`w-20 h-20 bg-linear-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg relative z-10`}>
                       <step.icon className="w-10 h-10 text-white" />
                     </div>
                     <div className="text-2xl font-bold text-gray-400">{step.step}</div>
@@ -118,7 +119,7 @@ export function ProcessSection() {
 
                   {/* Content */}
                   <div className="w-full max-w-md">
-                    <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                    <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-xs">
                       <CardHeader>
                         <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
                           {step.title}
@@ -147,7 +148,7 @@ export function ProcessSection() {
                     {/* Left Side Content (for even indices) */}
                     <div className="w-5/12 flex justify-start">
                       {index % 2 === 0 && (
-                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm max-w-md w-full">
+                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-xs max-w-md w-full">
                           <CardHeader>
                             <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
                               {step.title}
@@ -173,7 +174,7 @@ export function ProcessSection() {
                     {/* Center Icon */}
                     <div className="w-2/12 flex justify-center relative z-10">
                       <div className="flex flex-col items-center space-y-2">
-                        <div className={`w-20 h-20 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg`}>
+                        <div className={`w-20 h-20 bg-linear-to-r ${step.color} rounded-full flex items-center justify-center shadow-lg`}>
                           <step.icon className="w-10 h-10 text-white" />
                         </div>
                         <div className="text-2xl font-bold text-gray-400 bg-white px-2 py-1 rounded">{step.step}</div>
@@ -183,7 +184,7 @@ export function ProcessSection() {
                     {/* Right Side Content (for odd indices) */}
                     <div className="w-5/12 flex justify-end">
                       {index % 2 === 1 && (
-                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm max-w-md w-full">
+                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-xs max-w-md w-full">
                           <CardHeader>
                             <CardTitle className="text-2xl font-bold text-gray-800 mb-2">
                               {step.title}
@@ -230,12 +231,12 @@ export function ProcessSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                className="bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
               >
                 Get Free Consultation
               </a>
               <a
-                href="tel:+15551234567"
+                href={`tel:${getPhoneNumber('tel')}`}
                 className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300"
               >
                 Call Us Now

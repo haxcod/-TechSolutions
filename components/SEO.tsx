@@ -2,6 +2,7 @@
 
 import Head from 'next/head'
 import { StructuredData } from './StructuredData'
+import { getCompanyName } from '@/config/contact'
 
 interface SEOProps {
   title?: string
@@ -26,7 +27,7 @@ export function SEO({
   breadcrumbs,
   faqs
 }: SEOProps) {
-  const fullTitle = title ? `${title} | Haxcod Inc` : 'Haxcod Inc - IT Services & Software Development'
+  const fullTitle = title ? `${title} | ${getCompanyName('name')}` : `${getCompanyName('name')} - IT Services & Software Development`
   const fullDescription = description || 'Premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction.'
 
   return (
@@ -48,7 +49,7 @@ export function SEO({
         <meta property="og:description" content={fullDescription} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Haxcod Inc" />
+        <meta property="og:site_name" content={getCompanyName('name')} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -57,7 +58,7 @@ export function SEO({
         <meta name="twitter:image" content={ogImage} />
         
         {/* Additional SEO Meta Tags */}
-        <meta name="author" content="Haxcod Inc Team" />
+        <meta name="author" content={`${getCompanyName('name')} Team`} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />

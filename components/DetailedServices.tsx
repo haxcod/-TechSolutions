@@ -123,7 +123,7 @@ export function DetailedServices() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
+  Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We offer a comprehensive range of IT services to help your business 
@@ -147,7 +147,7 @@ export function DetailedServices() {
               {/* Content */}
               <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="flex items-center space-x-4">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center`}>
+  <div className={`w-16 h-16 bg-linear-to-r ${service.color} rounded-2xl flex items-center justify-center`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-3xl font-bold text-gray-800">{service.title}</h3>
@@ -185,7 +185,7 @@ export function DetailedServices() {
 
                 <div className="mt-8">
                   <Link href="/contact">
-                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3">
+  <Button className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3">
                       Get Started
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -195,9 +195,9 @@ export function DetailedServices() {
 
               {/* Visual/Image */}
               <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <div className={`h-80 bg-gradient-to-br ${service.bgColor} rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden`}>
+  <div className={`h-80 bg-linear-to-br ${service.bgColor} rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden`}>
                   <div className="text-center space-y-4">
-                    <div className={`w-24 h-24 bg-gradient-to-r ${service.color} rounded-full mx-auto flex items-center justify-center`}>
+  <div className={`w-24 h-24 bg-linear-to-r ${service.color} rounded-full mx-auto flex items-center justify-center`}>
                       <service.icon className="w-12 h-12 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-800">{service.title}</h3>

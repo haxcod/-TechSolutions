@@ -45,7 +45,7 @@ const values = [
 
 export function ValuesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
+  <section className="py-20 bg-linear-to-br from-gray-50 to-blue-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function ValuesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Values</span>
+            Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Values</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our core values guide everything we do and shape the way we work 
@@ -72,9 +72,9 @@ export function ValuesSection() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-xs">
                 <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-16 h-16 bg-linear-to-r ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
                   <CardTitle className="text-xl font-semibold">{value.title}</CardTitle>

@@ -2,10 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle, Users, Award, Target } from 'lucide-react'
+import { getCompanyName } from '@/config/contact'
 
 export function AboutHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+<section className="py-20 bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -22,7 +23,7 @@ export function AboutHero() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
               >
-                About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Haxcod Inc</span>
+                About <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{getCompanyName('name')}</span>
               </motion.h1>
               
               <motion.p
@@ -131,7 +132,7 @@ export function AboutHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white"
+className="bg-linear-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white"
             >
               <h2 className="text-xl font-semibold mb-3">Our Vision</h2>
               <p className="opacity-90">

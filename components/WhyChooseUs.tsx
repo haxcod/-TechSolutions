@@ -45,7 +45,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+<section className="py-20 bg-linear-to-br from-gray-50 to-blue-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function WhyChooseUs() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Us?</span>
+Why Choose <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Us?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We&quot;re not just another IT company. We&quot;re your technology partners, 
@@ -72,9 +72,9 @@ export function WhyChooseUs() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-xs">
                 <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+<div className={`w-16 h-16 bg-linear-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
                   <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>

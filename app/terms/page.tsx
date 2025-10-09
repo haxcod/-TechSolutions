@@ -1,17 +1,18 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SEO } from '@/components/SEO'
+import { getCompanyName, getContactEmail, getPhoneNumber, getFormattedAddress } from '@/config/contact'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Haxcod Inc',
-  description: 'Read our Terms of Service to understand the rules and regulations governing the use of Haxcod Inc services and website.',
+  title: `Terms of Service | ${getCompanyName('full')}`,
+  description: `Read our Terms of Service to understand the rules and regulations governing the use of ${getCompanyName('full')} services and website.`,
 }
 
 export default function TermsOfService() {
   return (
     <>
       <SEO 
-        title="Terms of Service | Haxcod Inc"
-        description="Read our Terms of Service to understand the rules and regulations governing the use of Haxcod Inc services and website."
+        title={`Terms of Service | ${getCompanyName('full')}`}
+        description={`Read our Terms of Service to understand the rules and regulations governing the use of ${getCompanyName('full')} services and website.`}
         canonical="/terms"
       />
       <div className="min-h-screen bg-gray-50 py-20">
@@ -24,7 +25,7 @@ export default function TermsOfService() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-700 mb-4">
-                  By accessing and using Haxcod Inc&apos;s services, you accept and agree to be bound by the 
+                  By accessing and using {getCompanyName('full')}&apos;s services, you accept and agree to be bound by the 
                   terms and provision of this agreement. If you do not agree to abide by the above, 
                   please do not use this service.
                 </p>
@@ -33,7 +34,7 @@ export default function TermsOfService() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Services Description</h2>
                 <p className="text-gray-700 mb-4">
-                  Haxcod Inc provides IT services including but not limited to:
+                  {getCompanyName('full')} provides IT services including but not limited to:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-4">
                   <li>Web development and design</li>
@@ -78,7 +79,7 @@ export default function TermsOfService() {
                 </p>
                 <ul className="list-disc pl-6 text-gray-700 mb-4">
                   <li>Client retains ownership of their data and content</li>
-                  <li>Haxcod Inc retains rights to general methodologies and know-how</li>
+                  <li>{getCompanyName('full')} retains rights to general methodologies and know-how</li>
                   <li>Custom developments are owned by the client upon full payment</li>
                   <li>Third-party components remain subject to their respective licenses</li>
                 </ul>
@@ -87,7 +88,7 @@ export default function TermsOfService() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Limitation of Liability</h2>
                 <p className="text-gray-700 mb-4">
-                  Haxcod Inc shall not be liable for any indirect, incidental, special, consequential, 
+                  {getCompanyName('full')} shall not be liable for any indirect, incidental, special, consequential, 
                   or punitive damages, including without limitation, loss of profits, data, use, 
                   goodwill, or other intangible losses.
                 </p>
@@ -122,10 +123,10 @@ export default function TermsOfService() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Haxcod Inc</strong><br />
-                    Email: legal@haxcod.com<br />
-                    Phone: +1 (555) 123-4567<br />
-                    Address: 123 Tech Street, Innovation District, San Francisco, CA 94105
+                    <strong>{getCompanyName('full')}</strong><br />
+                    Email: {getContactEmail('legal')}<br />
+                    Phone: {getPhoneNumber('display')}<br />
+                    Address: {getFormattedAddress('full')}
                   </p>
                 </div>
               </section>

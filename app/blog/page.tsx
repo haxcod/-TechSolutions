@@ -124,9 +124,9 @@ export default function BlogPage() {
   const regularPosts = filteredPosts.filter(post => !post.featured);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden pt-24 pb-12">
+      <section className="relative min-h-[70vh] flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden pt-24 pb-12">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -148,7 +148,7 @@ export default function BlogPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Tech <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Insights</span> & Innovation
+              Tech <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Insights</span> & Innovation
             </motion.h1>
             
             <motion.p
@@ -186,7 +186,7 @@ export default function BlogPage() {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-16 bg-white/50 backdrop-blur-sm border-y border-gray-100">
+      <section className="py-16 bg-white/50 backdrop-blur-xs border-y border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -215,10 +215,10 @@ export default function BlogPage() {
                   placeholder="Search articles, topics, or tags..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-16 pr-6 py-5 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 bg-white/90 backdrop-blur-sm text-gray-900 placeholder-gray-500 text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full pl-16 pr-6 py-5 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 bg-white/90 backdrop-blur-xs text-gray-900 placeholder-gray-500 text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                 />
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                  <div className="bg-linear-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
                     {filteredPosts.length} {filteredPosts.length === 1 ? 'result' : 'results'}
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export default function BlogPage() {
                     <span className="text-gray-600 font-medium text-sm sm:text-base">Filter by category</span>
                   </div>
                   {/* Results counter for mobile */}
-                  <div className="sm:hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  <div className="sm:hidden bg-linear-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
                     {filteredPosts.length} {filteredPosts.length === 1 ? 'result' : 'results'}
                   </div>
                 </div>
@@ -256,8 +256,8 @@ export default function BlogPage() {
                       onClick={() => setSelectedCategory(category)}
                       className={`flex-shrink-0 px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
                         selectedCategory === category
-                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                          : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 hover:border-gray-400 shadow-sm'
+                          ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                          : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 hover:border-gray-400 shadow-xs'
                       }`}
                     >
                       {category}
@@ -277,7 +277,7 @@ export default function BlogPage() {
 
       {/* Featured Post Section */}
       {featuredPost && (
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+        <section className="py-16 bg-linear-to-br from-blue-50 to-purple-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -289,14 +289,14 @@ export default function BlogPage() {
                 <h2 className="text-3xl font-bold text-gray-900">Editor&apos;s Pick</h2>
               </div>
 
-              <Card className="overflow-hidden bg-white/80 backdrop-blur-sm border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
+              <Card className="overflow-hidden bg-white/80 backdrop-blur-xs border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 group">
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="relative overflow-hidden">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                    <div className="aspect-[4/3] bg-linear-to-br from-blue-100 to-purple-100 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                       <div className="text-6xl text-blue-300">📖</div>
                     </div>
                     <div className="absolute top-4 left-4">
-                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      <span className="bg-linear-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium">
                         {featuredPost.category}
                       </span>
                     </div>
@@ -404,12 +404,12 @@ export default function BlogPage() {
                           <div className="text-4xl text-blue-300">📄</div>
                         </div>
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-xs font-medium border border-gray-200">
+              <span className="bg-white/90 backdrop-blur-xs text-gray-700 px-3 py-1 rounded-full text-xs font-medium border border-gray-200">
                             {post.category}
                           </span>
                         </div>
                         <div className="absolute top-4 right-4">
-                          <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full border border-gray-200">
+              <div className="bg-white/90 backdrop-blur-xs p-2 rounded-full border border-gray-200">
                             <TrendingUp className="w-4 h-4 text-green-600" />
                           </div>
                         </div>

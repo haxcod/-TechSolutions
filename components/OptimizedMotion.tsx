@@ -1,8 +1,8 @@
 'use client'
 
-import { motion, MotionProps } from 'framer-motion'
+import { motion, type MotionProps } from 'framer-motion'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
-import { ReactNode, forwardRef } from 'react'
+import { type ReactNode, forwardRef } from 'react'
 
 interface OptimizedMotionProps extends Omit<MotionProps, 'whileInView' | 'viewport'> {
   children: ReactNode

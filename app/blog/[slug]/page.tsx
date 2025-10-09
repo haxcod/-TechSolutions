@@ -138,13 +138,12 @@ export async function generateStaticParams() {
 }
 
 interface PageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 
-export default function BlogPost({ params }: PageProps) {
-  const post = blogPosts.find(p => p.slug === params.slug)
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = await params
+  const post = blogPosts.find(p => p.slug === slug)
   const retunFormattedDate =(date:any)=>{
    return formatBlogDate(date)
   }
@@ -154,9 +153,9 @@ export default function BlogPost({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-20">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="py-16 bg-linear-to-br from-blue-50 via-white to-purple-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Back Button */}
@@ -170,7 +169,7 @@ export default function BlogPost({ params }: PageProps) {
 
             {/* Category Badge */}
             <div className="mb-4">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+              <span className="bg-linear-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium">
                 {post.category}
               </span>
             </div>
@@ -222,7 +221,7 @@ export default function BlogPost({ params }: PageProps) {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 shadow-xl bg-white/80 backdrop-blur-sm border-0">
+            <Card className="p-8 md:p-12 shadow-xl bg-white/80 backdrop-blur-xs border-0">
               {/* Featured Image Placeholder */}
               <div className="relative h-64 md:h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl mb-8 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
@@ -267,7 +266,7 @@ export default function BlogPost({ params }: PageProps) {
                 .filter(p => p.id !== post.id && p.category === post.category)
                 .slice(0, 2)
                 .map((relatedPost) => (
-                  <Card key={relatedPost.id} className="hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
+            <Card key={relatedPost.id} className="hover:shadow-xl transition-all duration-300 group border-0 shadow-lg bg-white/80 backdrop-blur-xs overflow-hidden">
                     <div className="relative h-32 bg-gradient-to-br from-blue-100 to-purple-100">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
                       <div className="absolute inset-0 flex items-center justify-center">

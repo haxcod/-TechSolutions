@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { getContactEmail, getPhoneNumber, getCompanyName } from '@/config/contact'
 
 // Email configuration
 const createTransporter = () => {
@@ -73,7 +74,7 @@ export async function POST(request: NextRequest) {
     const autoReplyOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Thank you for contacting Haxcod Inc',
+      subject: `Thank you for contacting ${getCompanyName('name')}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
           <div style="text-align: center; margin-bottom: 30px;">
@@ -82,7 +83,7 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <p>Dear ${name},</p>
-            <p>Thank you for reaching out to Haxcod Inc. We have received your message and will get back to you within 24 hours.</p>
+            <p>Thank you for reaching out to ${getCompanyName('name')}. We have received your message and will get back to you within 24 hours.</p>
             
             <h3 style="color: #495057; margin-top: 20px;">Your Message Summary:</h3>
             <div style="background-color: #fff; padding: 15px; border-left: 4px solid #007bff; margin: 10px 0;">
@@ -103,8 +104,8 @@ export async function POST(request: NextRequest) {
           <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
             <p style="color: #6c757d; font-size: 14px;">
               Best regards,<br>
-              <strong>The Haxcod Inc Team</strong><br>
-              Email: info@haxcod.com | Phone: +1 (555) 123-4567
+              <strong>The ${getCompanyName('full')} Team</strong><br>
+              Email: ${getContactEmail('primary')} | Phone: ${getPhoneNumber('display')}
             </p>
           </div>
         </div>

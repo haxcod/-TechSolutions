@@ -1,6 +1,7 @@
 'use client'
 
 import Script from 'next/script'
+import { contactConfig, getPhoneNumber, getContactEmail, getCompanyName } from '@/config/contact'
 
 interface StructuredDataProps {
   type: 'organization' | 'website' | 'service' | 'breadcrumb' | 'faq' | 'review'
@@ -14,31 +15,31 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Haxcod Inc",
-          "alternateName": "Haxcod IT Services",
-          "url": "https://haxcod.com",
-          "logo": "https://haxcod.com/logo.png",
-          "description": "Premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation.",
+          "name": getCompanyName('full'),
+          "alternateName": getCompanyName('name'),
+          "url": contactConfig.company.website,
+          "logo": contactConfig.company.logo,
+          "description": contactConfig.company.tagline,
           "foundingDate": "2019",
           "numberOfEmployees": "50+",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Tech Street, Innovation District",
-            "addressLocality": "San Francisco",
-            "addressRegion": "CA",
-            "postalCode": "94105",
+            "streetAddress": contactConfig.contact.address.street + ", " + contactConfig.contact.address.district,
+            "addressLocality": contactConfig.contact.address.city,
+            "addressRegion": contactConfig.contact.address.state,
+            "postalCode": contactConfig.contact.address.zipCode,
             "addressCountry": "US"
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-555-123-4567",
+            "telephone": getPhoneNumber('raw'),
             "contactType": "customer service",
             "availableLanguage": "English"
           },
           "sameAs": [
-            "https://www.linkedin.com/company/haxcod",
-            "https://twitter.com/haxcod",
-            "https://github.com/haxcod"
+            contactConfig.social.linkedin,
+            contactConfig.social.twitter,
+            contactConfig.social.github
           ],
           "serviceArea": {
             "@type": "GeoCircle",
@@ -93,16 +94,16 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "Haxcod Inc",
-          "url": "https://haxcod.com",
-          "description": "Premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation.",
+          "name": getCompanyName('full'),
+          "url": contactConfig.company.website,
+          "description": contactConfig.company.tagline,
           "publisher": {
             "@type": "Organization",
-            "name": "Haxcod Inc"
+            "name": getCompanyName('full')
           },
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://haxcod.com/search?q={search_term_string}",
+            "target": contactConfig.company.website + "/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }
@@ -115,7 +116,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "description": data?.description || "Comprehensive IT services including web development, mobile apps, and cloud solutions",
           "provider": {
             "@type": "Organization",
-            "name": "Haxcod Inc"
+            "name": getCompanyName('full')
           },
           "areaServed": "Worldwide",
           "serviceType": "IT Services",
@@ -158,7 +159,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "@type": "Review",
           "itemReviewed": {
             "@type": "Organization",
-            "name": "Haxcod Inc"
+            "name": getCompanyName('name')
           },
           "author": {
             "@type": "Person",

@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden pt-24 pb-12">
+  <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden pt-24 pb-12">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -32,7 +32,7 @@ export function Hero() {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               >
                 We Build{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+  <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Scalable
                 </span>{' '}
                 Web & Mobile Solutions
@@ -78,7 +78,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+  <Button size="lg" className="w-full sm:w-auto bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
                   Get a Free Quote
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
@@ -120,9 +120,9 @@ export function Hero() {
           >
             <div className="relative">
               {/* Main Image Placeholder */}
-              <div className="w-full h-96 lg:h-[500px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl flex items-center justify-center">
+  <div className="w-full h-96 lg:h-[500px] bg-linear-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto flex items-center justify-center">
+  <div className="w-24 h-24 bg-linear-to-r from-blue-600 to-purple-600 rounded-full mx-auto flex items-center justify-center">
                     <span className="text-white text-3xl font-bold">IT</span>
                   </div>
                   <h2 className="text-2xl font-semibold text-gray-800">Modern Solutions</h2>

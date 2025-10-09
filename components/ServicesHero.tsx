@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export function ServicesHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+<section className="py-20 bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -24,7 +24,7 @@ export function ServicesHero() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl lg:text-5xl font-bold leading-tight"
               >
-                Comprehensive <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IT Services</span>
+Comprehensive <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IT Services</span>
               </motion.h1>
               
               <motion.p
@@ -66,7 +66,7 @@ export function ServicesHero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
+<Button size="lg" className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
                   Get Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -142,7 +142,7 @@ export function ServicesHero() {
                   <div className="flex-1">
                     <div className="flex justify-between items-center mb-2">
                       <h2 className="text-lg font-semibold text-gray-800">{service.title}</h2>
-                      <span className="text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+<span className="text-2xl font-bold bg-linear-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
                         {service.percentage}
                       </span>
                     </div>
@@ -151,7 +151,7 @@ export function ServicesHero() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                   <motion.div 
-                    className={`h-3 bg-gradient-to-r ${service.color} rounded-full`}
+className={`h-3 bg-linear-to-r ${service.color} rounded-full`}
                     initial={{ width: 0 }}
                     animate={{ width: service.percentage }}
                     transition={{ duration: 1.5, delay: 0.8 + index * 0.2, ease: "easeOut" }}

@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { getContactEmail, getPhoneNumber, contactConfig, getFormattedAddress } from '@/config/contact'
 
 export function ContactHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+    <section className="py-20 bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
@@ -21,7 +22,7 @@ export function ContactHero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight"
             >
-              Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+              Get In <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
             </motion.h1>
             
             <motion.p
@@ -46,7 +47,7 @@ export function ContactHero() {
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                 <div>
                   <div className="font-semibold text-gray-800 text-sm sm:text-base">Call Us</div>
-                  <div className="text-xs sm:text-sm text-gray-600">+1 (555) 123-4567</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{getPhoneNumber('display')}</div>
                 </div>
               </div>
 
@@ -54,7 +55,7 @@ export function ContactHero() {
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
                 <div>
                   <div className="font-semibold text-gray-800 text-sm sm:text-base">Email Us</div>
-                  <div className="text-xs sm:text-sm text-gray-600">info@haxcod.com</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{getContactEmail('primary')}</div>
                 </div>
               </div>
 
@@ -62,7 +63,7 @@ export function ContactHero() {
                 <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
                 <div>
                   <div className="font-semibold text-gray-800 text-sm sm:text-base">Visit Us</div>
-                  <div className="text-xs sm:text-sm text-gray-600">San Francisco, CA</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{contactConfig.contact.address.city}, {contactConfig.contact.address.state}</div>
                 </div>
               </div>
 
@@ -70,7 +71,7 @@ export function ContactHero() {
                 <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
                 <div>
                   <div className="font-semibold text-gray-800 text-sm sm:text-base">Hours</div>
-                  <div className="text-xs sm:text-sm text-gray-600">24/7 Support</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{contactConfig.businessHours.support}</div>
                 </div>
               </div>
             </motion.div>
@@ -82,13 +83,13 @@ export function ContactHero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <a href="tel:+15551234567">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
+              <a href={`tel:${getPhoneNumber('raw')}`}>
+            <Button size="lg" className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
                   <Phone className="mr-2 w-5 h-5" />
                   Call Now
                 </Button>
               </a>
-              <a href="mailto:info@haxcod.com">
+              <a href={`mailto:${getContactEmail('primary')}`}>
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
                   <Mail className="mr-2 w-5 h-5" />
                   Send Email

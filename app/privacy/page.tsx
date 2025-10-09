@@ -1,17 +1,18 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SEO } from '@/components/SEO'
+import { getCompanyName, getContactEmail, getPhoneNumber, getFormattedAddress } from '@/config/contact'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Haxcod Inc',
-  description: 'Learn about how Haxcod Inc collects, uses, and protects your personal information. Our comprehensive privacy policy explains our data practices.',
+  title: `Privacy Policy | ${getCompanyName('full')}`,
+  description: `Learn about how ${getCompanyName('full')} collects, uses, and protects your personal information. Our comprehensive privacy policy explains our data practices.`,
 }
 
 export default function PrivacyPolicy() {
   return (
     <>
       <SEO 
-        title="Privacy Policy | Haxcod Inc"
-        description="Learn about how Haxcod Inc collects, uses, and protects your personal information. Our comprehensive privacy policy explains our data practices."
+        title={`Privacy Policy | ${getCompanyName('full')}`}
+        description={`Learn about how ${getCompanyName('full')} collects, uses, and protects your personal information. Our comprehensive privacy policy explains our data practices.`}
         canonical="/privacy"
       />
       <div className="min-h-screen bg-gray-50 py-20">
@@ -92,10 +93,10 @@ export default function PrivacyPolicy() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Haxcod Inc</strong><br />
-                    Email: privacy@haxcod.com<br />
-                    Phone: +1 (555) 123-4567<br />
-                    Address: 123 Tech Street, Innovation District, San Francisco, CA 94105
+                    <strong>{getCompanyName('full')}</strong><br />
+                    Email: {getContactEmail('privacy')}<br />
+                    Phone: {getPhoneNumber('display')}<br />
+                    Address: {getFormattedAddress('full')}
                   </p>
                 </div>
               </section>

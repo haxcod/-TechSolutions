@@ -1,13 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { Send, CheckCircle } from 'lucide-react'
-import { useState } from 'react'
+import { Textarea } from '@/components/ui/textarea'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { getPhoneNumber } from '@/config/contact'
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -75,7 +76,7 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-12 flex items-center justify-center min-h-[600px]">
+  <div className="bg-linear-to-br from-blue-50 to-purple-50 p-12 flex items-center justify-center min-h-[600px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -95,14 +96,14 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 sm:p-6 lg:p-12 overflow-hidden contact-form-container">
+  <div className="bg-linear-to-br from-blue-50 to-purple-50 p-4 sm:p-6 lg:p-12 overflow-hidden contact-form-container">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="w-full"
       >
-        <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+        <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-xs">
           <CardHeader>
             <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
               Send us a Message
@@ -163,7 +164,7 @@ export function ContactForm() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder={getPhoneNumber('display')}
                   />
                 </div>
                 <div className="space-y-2">
@@ -222,7 +223,7 @@ export function ContactForm() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 text-base sm:text-lg font-semibold"
+                className="w-full bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 text-base sm:text-lg font-semibold"
               >
                 {isSubmitting ? (
                   <div className="flex items-center space-x-2">

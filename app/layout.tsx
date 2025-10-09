@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar  from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
+import {Footer} from '@/components/Footer'
 import { StructuredData } from '@/components/StructuredData'
+import { getCompanyName, contactConfig } from '@/config/contact'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -13,10 +14,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Haxcod Inc - Leading IT Services & Software Development Company',
-    template: '%s | Haxcod Inc - IT Services & Software Development'
+    default: `${getCompanyName('full')} - Leading IT Services & Software Development Company`,
+    template: `%s | ${getCompanyName('full')} - IT Services & Software Development`
   },
-  description: 'Haxcod Inc is a premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction. Get your free consultation today!',
+  description: `${getCompanyName('full')} is a premier IT services company specializing in web development, mobile app development, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction. Get your free consultation today!`,
   keywords: [
     'IT services company',
     'web development services',
@@ -39,15 +40,15 @@ export const metadata: Metadata = {
     'app development company',
     'web design company'
   ],
-  authors: [{ name: 'Haxcod Inc Team', url: 'https://haxcod.com' }],
-  creator: 'Haxcod Inc',
-  publisher: 'Haxcod Inc',
+  authors: [{ name: `${getCompanyName('full')} Team`, url: contactConfig.company.website }],
+  creator: getCompanyName('full'),
+  publisher: getCompanyName('full'),
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://haxcod.com'),
+  metadataBase: new URL(contactConfig.company.website),
   alternates: {
     canonical: '/',
     languages: {
@@ -58,24 +59,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://haxcod.com',
-    siteName: 'Haxcod Inc',
-    title: 'Haxcod Inc - Leading IT Services & Software Development Company',
+    url: contactConfig.company.website,
+    siteName: getCompanyName('full'),
+    title: `${getCompanyName('full')} - Leading IT Services & Software Development Company`,
     description: 'Premier IT services company specializing in web development, mobile apps, cloud solutions, and digital transformation. 500+ successful projects, 98% client satisfaction.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Haxcod Inc - IT Services & Software Development',
+        alt: `${getCompanyName('full')} - IT Services & Software Development`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@haxcod',
-    creator: '@haxcod',
-    title: 'Haxcod Inc - Leading IT Services & Software Development Company',
+    site: contactConfig.social.twitter,
+    creator: contactConfig.social.twitter,
+    title: `${getCompanyName('full')} - Leading IT Services & Software Development Company`,
     description: 'Premier IT services company specializing in web development, mobile apps, cloud solutions, and digital transformation.',
     images: ['/twitter-image.jpg'],
   },
@@ -119,7 +120,7 @@ export default function RootLayout({
         <StructuredData type="website" />
       </head>
       <body className={`${inter.className} ${inter.variable}`}>
-        <Navbar />
+        <Navbar/>
         <main className="min-h-screen">
           {children}
         </main>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { contactConfig, getPhoneNumber, getContactEmail, getFormattedAddress } from '@/config/contact'
 
 export function MapSection() {
   return (
@@ -15,10 +16,10 @@ export function MapSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-            Visit Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Office</span>
+  Visit Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Office</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Located in the heart of San Francisco&apos;s tech district, our office is easily 
+            Located in the heart of {contactConfig.contact.address.city}&apos;s tech district, our office is easily 
             accessible and equipped with modern facilities for client meetings.
           </p>
         </motion.div>
@@ -32,15 +33,15 @@ export function MapSection() {
             viewport={{ once: true }}
             className="relative w-full"
           >
-            <div className="h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden">
+  <div className="h-64 sm:h-80 lg:h-96 bg-linear-to-br from-blue-100 to-purple-100 rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden">
               {/* Map placeholder with decorative elements */}
               <div className="text-center space-y-3 sm:space-y-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 rounded-full mx-auto flex items-center justify-center">
                   <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-800">Our Location</h3>
-                <p className="text-sm sm:text-base text-gray-600">123 Tech Street, Innovation District</p>
-                <p className="text-sm sm:text-base text-gray-600">San Francisco, CA 94105</p>
+                <p className="text-sm sm:text-base text-gray-600">{getFormattedAddress('short')}</p>
+                <p className="text-sm sm:text-base text-gray-600">{contactConfig.contact.address.city}, {contactConfig.contact.address.state} {contactConfig.contact.address.zipCode}</p>
               </div>
               
               {/* Decorative map elements */}
@@ -67,8 +68,7 @@ export function MapSection() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Address</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    123 Tech Street, Innovation District<br />
-                    San Francisco, CA 94105<br />
+                    {getFormattedAddress('multiline')}<br />
                     United States
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export function MapSection() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Phone</h3>
                   <p className="text-gray-600">
-                    +1 (555) 123-4567<br />
+                    {getPhoneNumber('display')}<br />
                     <span className="text-sm text-gray-500">Available 24/7 for emergencies</span>
                   </p>
                 </div>
@@ -94,7 +94,7 @@ export function MapSection() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
                   <p className="text-gray-600">
-                    info@haxcod.com<br />
+                    {getContactEmail('primary')}<br />
                     <span className="text-sm text-gray-500">Response within 2 hours</span>
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export function MapSection() {
             </div>
 
             {/* Directions */}
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
+  <div className="bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Getting Here</h3>
               <div className="space-y-2 text-gray-600 text-sm">
                 <p><strong>By Car:</strong> Free parking available in our building garage</p>

@@ -60,7 +60,7 @@ export function OurStory() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Journey</span>
+            Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Journey</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From humble beginnings to becoming a trusted technology partner, 
@@ -70,7 +70,7 @@ export function OurStory() {
 
         <div className="relative w-full max-w-6xl mx-auto timeline-container">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-200 via-purple-200 to-green-200 hidden lg:block"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-blue-200 via-purple-200 to-green-200 hidden lg:block"></div>
 
           <div className="space-y-16">
             {timeline.map((item, index) => (
@@ -91,7 +91,7 @@ export function OurStory() {
                           <div className="text-2xl font-bold text-gray-800">{item.year}</div>
                           <div className="text-lg font-semibold text-gray-700">{item.title}</div>
                         </div>
-                        <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center`}>
+                        <div className={`w-12 h-12 bg-linear-to-r ${item.color} rounded-full flex items-center justify-center`}>
                           <item.icon className="w-6 h-6 text-white" />
                         </div>
                       </div>
@@ -104,7 +104,7 @@ export function OurStory() {
 
                 {/* Timeline Dot */}
                 <div className="flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg border-4 border-white relative z-10">
-                  <div className={`w-8 h-8 bg-gradient-to-r ${item.color} rounded-full`}></div>
+                  <div className={`w-8 h-8 bg-linear-to-r ${item.color} rounded-full`}></div>
                 </div>
 
                 {/* Right Side Content (Odd Index) */}
@@ -112,7 +112,7 @@ export function OurStory() {
                   <div className="hidden lg:block w-5/12">
                     <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 text-left">
                       <div className="flex items-center space-x-3 mb-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center`}>
+                        <div className={`w-12 h-12 bg-linear-to-r ${item.color} rounded-full flex items-center justify-center`}>
                           <item.icon className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -131,7 +131,7 @@ export function OurStory() {
                 <div className="lg:hidden w-full max-w-md mx-auto mt-4">
                   <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 text-center">
                     <div className="flex items-center justify-center space-x-3 mb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center`}>
+                      <div className={`w-12 h-12 bg-linear-to-r ${item.color} rounded-full flex items-center justify-center`}>
                         <item.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>

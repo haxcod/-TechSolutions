@@ -4,10 +4,11 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Phone, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { getContactEmail, getPhoneNumber, contactConfig } from '@/config/contact'
 
 export function CTABanner() {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+<section className="py-20 bg-linear-to-r from-blue-600 to-purple-600 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-black/10"></div>
@@ -42,7 +43,7 @@ export function CTABanner() {
               </Button>
             </Link>
             
-            <a href="tel:+15551234567">
+            <a href={`tel:${getPhoneNumber('tel')}`}>
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -67,8 +68,8 @@ export function CTABanner() {
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Call Us</h3>
-              <p className="opacity-90">+1 (555) 123-4567</p>
-              <p className="text-sm opacity-75">24/7 Support Available</p>
+              <p className="opacity-90">{getPhoneNumber('display')}</p>
+              <p className="text-sm opacity-75">{contactConfig.businessHours.support}</p>
             </motion.div>
 
             <motion.div
@@ -82,8 +83,8 @@ export function CTABanner() {
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Email Us</h3>
-              <p className="opacity-90">info@haxcod.com</p>
-              <p className="text-sm opacity-75">Response within 2 hours</p>
+              <p className="opacity-90">{getContactEmail('primary')}</p>
+              <p className="text-sm opacity-75">{contactConfig.support.responseTime}</p>
             </motion.div>
 
             <motion.div

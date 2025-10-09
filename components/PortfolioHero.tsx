@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export function PortfolioHero() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+  <section className="py-20 bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
@@ -22,7 +22,7 @@ export function PortfolioHero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl lg:text-6xl font-bold leading-tight"
             >
-              Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
+              Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
             </motion.h1>
             
             <motion.p
@@ -68,7 +68,7 @@ export function PortfolioHero() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
+                <Button size="lg" className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
                   Start Your Project
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

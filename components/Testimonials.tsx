@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+import { getCompanyName } from '@/config/contact'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -19,7 +20,7 @@ const testimonials = [
     role: 'CEO, TechStart Inc.',
     company: 'TechStart Inc.',
     image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face',
-    content: 'Haxcod Inc transformed our business with their innovative web platform. The team delivered exceptional results on time and within budget. Highly recommended!',
+    content: `${getCompanyName('name')} transformed our business with their innovative web platform. The team delivered exceptional results on time and within budget. Highly recommended!`,
     rating: 5
   },
   {
@@ -37,7 +38,7 @@ const testimonials = [
     role: 'Founder, HealthTech Solutions',
     company: 'HealthTech Solutions',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
-    content: 'Working with Haxcod Inc was a game-changer for our healthcare platform. They understood our complex requirements and delivered a robust solution.',
+    content: `Working with ${getCompanyName('name')} was a game-changer for our healthcare platform. They understood our complex requirements and delivered a robust solution.`,
     rating: 5
   },
   {
@@ -64,16 +65,17 @@ const testimonials = [
     role: 'Founder, GreenEnergy Corp',
     company: 'GreenEnergy Corp',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
-    content: 'Haxcod Inc helped us digitize our energy management system. The solution is robust, secure, and has significantly improved our operations.',
+    content: `${getCompanyName('name')} helped us digitize our energy management system. The solution is robust, secure, and has significantly improved our operations.`,
     rating: 5
   }
 ]
 
 export function Testimonials() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const shouldLoop = testimonials.length > 1
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 testimonials-section">
+<section className="py-20 bg-linear-to-br from-blue-50 to-purple-50 testimonials-section">
       <div className="w-full max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +85,7 @@ export function Testimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
+What Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Don&apos;t just take our word for it. Here&apos;s what our satisfied clients 
@@ -96,15 +98,16 @@ export function Testimonials() {
             modules={[Navigation, Pagination, Autoplay, EffectFade]}
             spaceBetween={30}
             slidesPerView={1}
+            slidesPerGroup={1}
+            watchOverflow={true}
+            slidesOffsetBefore={16}
+            slidesOffsetAfter={16}
             navigation={{
               nextEl: '.swiper-button-next-custom',
               prevEl: '.swiper-button-prev-custom',
             }}
             pagination={{
               clickable: true,
-              el: '.swiper-pagination-testimonials',
-              bulletClass: 'swiper-pagination-bullet-custom',
-              bulletActiveClass: 'swiper-pagination-bullet-active-custom',
             }}
             autoplay={isAutoPlaying ? {
               delay: 5000,
@@ -114,12 +117,12 @@ export function Testimonials() {
             fadeEffect={{
               crossFade: true
             }}
-            loop={true}
+            loop={shouldLoop}
             className="testimonials-swiper"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <Card className="w-full border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+                <Card className="w-full border-0 shadow-xl bg-white/80 backdrop-blur-xs">
                   <CardContent className="p-6 sm:p-8 lg:p-12">
                     <div className="text-center w-full">
                       <Quote className="w-12 h-12 text-blue-500 mx-auto mb-6" />
@@ -162,8 +165,8 @@ export function Testimonials() {
               </SwiperSlide>
             ))}
 
-            {/* Custom Navigation with Pagination */}
-            <div className="flex justify-center items-center mt-4">
+            {/* Custom Navigation */}
+            {/* <div className="flex justify-center items-center gap-6 mt-4">
               <button
                 className="swiper-button-prev-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
                 aria-label="Previous testimonial"
@@ -172,10 +175,6 @@ export function Testimonials() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-
-              {/* Custom Pagination */}
-              <div className="swiper-pagination-testimonials flex-1 max-w-xs"></div>
-
               <button
                 className="swiper-button-next-custom p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
                 aria-label="Next testimonial"
@@ -184,7 +183,7 @@ export function Testimonials() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </Swiper>
 
 
@@ -192,41 +191,40 @@ export function Testimonials() {
       </div>
 
       <style jsx global>{`
-        .swiper-pagination-testimonials {
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-          margin: 0 !important;
-          gap: 8px !important;
-          min-height: 40px !important;
-        }
-        
         .testimonials-swiper .swiper-pagination {
           position: relative !important;
-          margin-top: 2rem;
+          margin-top: 1.5rem;
         }
         
-        .swiper-pagination-bullet-custom {
-          width: 35px !important;
-          height: 7px !important;
+        .testimonials-swiper .swiper-pagination-bullet {
+          width: 8px !important;
+          height: 8px !important;
           background: #d1d5db !important;
-          border-radius: 6px !important;
           opacity: 1 !important;
-          margin: 0 4px !important;
+          margin: 0 6px !important;
+          border-radius: 50% !important;
           cursor: pointer !important;
-          transition: all 0.3s ease !important;
+          transition: transform 0.2s ease, background 0.2s ease !important;
         }
         
-        .swiper-pagination-bullet-custom:hover {
-          background: #9ca3af !important;
+        .testimonials-swiper .swiper-pagination-bullet:hover {
+           background: #3b82f6 !important;
         }
         
-        .swiper-pagination-bullet-active-custom {
+        .testimonials-swiper .swiper-pagination-bullet-active {
           background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+          transform: scale(1.25) !important;
+        }
+        
+        @media (min-width: 768px) {
+          .testimonials-swiper .swiper-pagination-bullet {
+            width: 10px !important;
+            height: 10px !important;
+          }
         }
         
         .testimonials-swiper {
-          padding-bottom: 3rem;
+          padding-bottom: 2.5rem;
         }
       `}</style>
     </section>

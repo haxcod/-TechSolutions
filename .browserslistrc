@@ -1,0 +1,29 @@
+# Modern browsers that support ES2020+ features
+# This will reduce polyfills and bundle size significantly
+
+# Chrome 87+ (supports all modern JS features)
+Chrome >= 87
+
+# Firefox 78+ (supports all modern JS features)
+Firefox >= 78
+
+# Safari 14+ (supports all modern JS features)
+Safari >= 14
+
+# Edge 88+ (supports all modern JS features)
+Edge >= 88
+
+# Exclude legacy browsers to avoid unnecessary polyfills
+not IE 11
+not dead
+not op_mini all
+
+# For production builds, target even more modern browsers
+[production]
+Chrome >= 91
+Firefox >= 90
+Safari >= 15
+Edge >= 91
+not IE 11
+not dead
+not op_mini all

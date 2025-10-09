@@ -48,7 +48,7 @@ export function ServicesOverview() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
+            Our <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             We offer comprehensive IT services to help your business thrive in the digital age. 
@@ -66,7 +66,7 @@ export function ServicesOverview() {
             >
               <Card className="h-full hover:shadow-xl transition-all duration-300 group border-0 shadow-lg">
                 <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-16 h-16 bg-linear-to-r ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
@@ -102,7 +102,7 @@ export function ServicesOverview() {
           className="text-center mt-12"
         >
           <Link href="/services">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4">
+            <Button size="lg" className="bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4">
               View All Services
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

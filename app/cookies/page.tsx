@@ -1,17 +1,18 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { SEO } from '@/components/SEO'
+import { getCompanyName, getContactEmail, getPhoneNumber, getFormattedAddress } from '@/config/contact'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Haxcod Inc',
-  description: 'Learn about how Haxcod Inc uses cookies and similar technologies to enhance your browsing experience and improve our services.',
+  title: `Cookie Policy | ${getCompanyName('full')}`,
+  description: `Learn about how ${getCompanyName('full')} uses cookies and similar technologies to enhance your browsing experience and improve our services.`,
 }
 
 export default function CookiePolicy() {
   return (
     <>
       <SEO 
-        title="Cookie Policy | Haxcod Inc"
-        description="Learn about how Haxcod Inc uses cookies and similar technologies to enhance your browsing experience and improve our services."
+        title={`Cookie Policy | ${getCompanyName('full')}`}
+        description={`Learn about how ${getCompanyName('full')} uses cookies and similar technologies to enhance your browsing experience and improve our services.`}
         canonical="/cookies"
       />
       <div className="min-h-screen bg-gray-50 py-20">
@@ -141,10 +142,10 @@ export default function CookiePolicy() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Haxcod Inc</strong><br />
-                    Email: privacy@haxcod.com<br />
-                    Phone: +1 (555) 123-4567<br />
-                    Address: 123 Tech Street, Innovation District, San Francisco, CA 94105
+                    <strong>{getCompanyName('full')}</strong><br />
+                    Email: {getContactEmail('privacy')}<br />
+                    Phone: {getPhoneNumber('display')}<br />
+                    Address: {getFormattedAddress('full')}
                   </p>
                 </div>
               </section>

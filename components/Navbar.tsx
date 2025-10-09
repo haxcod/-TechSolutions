@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { contactConfig, getPhoneNumber, getContactEmail, getCompanyName } from '@/config/contact'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -61,7 +62,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-white/90 backdrop-blur-sm'
+          : 'bg-white/90 backdrop-blur-xs'
       }`}
     >
       {/* Top bar with contact info */}
@@ -70,16 +71,16 @@ export default function Navbar() {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="flex items-center space-x-1">
               <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">+1 (555) 123-4567</span>
-              <span className="sm:hidden">+1 (555) 123-4567</span>
+              <span className="hidden sm:inline">{getPhoneNumber('display')}</span>
+              <span className="sm:hidden">{getPhoneNumber('display')}</span>
             </div>
             <div className="hidden sm:flex items-center space-x-1">
               <Mail className="w-4 h-4" />
-              <span>info@haxcod.com</span>
+              <span>{getContactEmail('primary')}</span>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <span>24/7 Support Available</span>
+            <span>{contactConfig.support.responseTime} Response Time</span>
           </div>
         </div>
       </div>
@@ -90,10 +91,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg sm:text-xl">IT</span>
+              <span className="text-white font-bold text-lg sm:text-xl">H</span>
             </div>
             <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Haxcod Inc
+              {getCompanyName('name')}
             </span>
           </Link>
 

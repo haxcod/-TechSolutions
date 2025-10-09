@@ -3,13 +3,14 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Phone, Mail, MapPin, Clock, MessageCircle, Users, Award, Zap } from 'lucide-react'
+import { contactConfig, getPhoneNumber, getContactEmail, getFormattedAddress } from '@/config/contact'
 
 const contactMethods = [
   {
     icon: Phone,
     title: 'Phone Support',
     description: 'Call us for immediate assistance',
-    contact: '+1 (555) 123-4567',
+    contact: getPhoneNumber('display'),
     availability: '24/7 Available',
     color: 'from-blue-500 to-blue-600'
   },
@@ -17,7 +18,7 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Support',
     description: 'Send us an email anytime',
-    contact: 'info@haxcod.com',
+    contact: getContactEmail('primary'),
     availability: 'Response within 2 hours',
     color: 'from-purple-500 to-purple-600'
   },
@@ -33,7 +34,7 @@ const contactMethods = [
     icon: MapPin,
     title: 'Office Visit',
     description: 'Visit our office location',
-    contact: '123 Tech Street, SF',
+    contact: getFormattedAddress('short'),
     availability: 'By appointment only',
     color: 'from-orange-500 to-orange-600'
   }
@@ -80,7 +81,7 @@ export function ContactInfo() {
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-4 sm:p-6">
                     <div className="flex items-start space-x-3 sm:space-x-4">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-r ${method.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
                         <method.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -141,7 +142,7 @@ export function ContactInfo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-50 to-purple-50">
+          <Card className="border-0 shadow-lg bg-linear-to-r from-blue-50 to-purple-50">
             <CardContent className="p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <Clock className="w-6 h-6 text-blue-600" />
