@@ -48,106 +48,45 @@ const nextConfig = {
     outputFileTracingRoot: path.join(__dirname, '../../'),
     outputFileTracingExcludes: {
       '*': [
-        // Platform-specific binaries (not needed for your target platform)
-        'node_modules/@swc/core-linux-x64-gnu',
-        'node_modules/@swc/core-linux-x64-musl',
-        'node_modules/@swc/core-darwin-x64',
-        'node_modules/@swc/core-darwin-arm64',
-        'node_modules/@esbuild/linux-x64',
-        'node_modules/@esbuild/darwin-x64',
-        'node_modules/@esbuild/darwin-arm64',
-        'node_modules/@next/swc-linux-x64-gnu',
-        'node_modules/@next/swc-linux-x64-musl',
-        'node_modules/@next/swc-darwin-x64',
-        'node_modules/@next/swc-darwin-arm64',
-        
-        // Version control and cache directories
-        '.git/**/*',
-        '.next/cache/**/*',
-        'node_modules/.cache/**/*',
-        '**/node_modules/.cache/**/*',
-        
-        // Documentation and metadata files
-        '**/*.md',
-        '**/*.txt',
+        // Only exclude clearly unnecessary files
         '**/README*',
         '**/LICENSE*',
         '**/CHANGELOG*',
-        '**/HISTORY*',
         '**/.DS_Store',
         '**/Thumbs.db',
-        '**/*.log',
         
-        // Development and testing files
-        '**/coverage/**/*',
-        '**/test/**/*',
-        '**/tests/**/*',
-        '**/__tests__/**/*',
+        // Test files only
+        '**/__tests__/**',
         '**/*.test.*',
         '**/*.spec.*',
-        '**/jest.config.*',
-        '**/vitest.config.*',
-        '**/cypress/**/*',
-        '**/playwright/**/*',
         
-        // Documentation and examples
-        '**/docs/**/*',
-        '**/examples/**/*',
-        '**/demo/**/*',
-        '**/benchmark/**/*',
-        '**/fixtures/**/*',
-        '**/storybook-static/**/*',
+        // Editor files
+        '**/.vscode/**',
+        '**/.idea/**',
         
-        // IDE and editor files
-        '**/.vscode/**/*',
-        '**/.idea/**/*',
-        '**/.sublime-*',
-        '**/*.swp',
-        '**/*.swo',
+        // Version control
+        '**/.git/**',
+        '**/.gitignore',
         
-        // TypeScript source files (only compiled JS needed)
-        '**/node_modules/**/*.ts',
-        '**/node_modules/**/*.tsx',
-        '!**/node_modules/**/*.d.ts', // Keep type definitions
-        
-        // Source maps in production
-        '**/node_modules/**/*.map',
-        
-        // Nested node_modules (potential duplicates)
-        '**/node_modules/**/node_modules/**/*',
-        
-        // Large unnecessary files from specific packages
-        'node_modules/sharp/vendor/**/*', // Sharp binaries for other platforms
-        'node_modules/@types/**/*.md',
-        'node_modules/typescript/lib/tsc.js', // TypeScript compiler not needed at runtime
+        // Only exclude specific large dev dependencies
+        'node_modules/@types/**',
+        'node_modules/typescript/lib/tsc.js',
         'node_modules/typescript/lib/tsserver.js',
-        'node_modules/typescript/lib/typescript.js',
-        
-        // Framer Motion unnecessary files
-        'node_modules/framer-motion/dist/es/**/*', // Keep only the main dist
-        'node_modules/framer-motion/**/*.md',
-        
-        // Swiper unnecessary files
-        'node_modules/swiper/modules/**/*.scss',
-        'node_modules/swiper/**/*.less',
-        
-        // Development dependencies that might be included
-        'node_modules/@next/bundle-analyzer/**/*',
-        'node_modules/eslint/**/*',
-        'node_modules/autoprefixer/**/*',
-        'node_modules/postcss/**/*',
-        'node_modules/tailwindcss/**/*',
+        'node_modules/eslint/**',
+        'node_modules/prettier/**',
       ],
     },
-    
-    // Include specific files that are essential for runtime
+
     outputFileTracingIncludes: {
       '/api/contact': [
-        // Ensure nodemailer and its dependencies are included
-        'node_modules/nodemailer/**/*',
-        '!node_modules/nodemailer/**/*.md',
-        '!node_modules/nodemailer/**/test/**/*',
-        '!node_modules/nodemailer/**/tests/**/*',
+        'node_modules/nodemailer/**',
+        'node_modules/@types/nodemailer/**',
+      ],
+      // Include Next.js internal dependencies that might be missed
+      '**': [
+        'node_modules/next/dist/**',
+        'node_modules/picocolors/**',
+        'node_modules/styled-jsx/**',
       ],
     },
 
