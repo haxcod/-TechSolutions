@@ -44,10 +44,13 @@ const nextConfig = {
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
     serverComponentsExternalPackages: ['nodemailer'],
 
-    // Output file tracing configuration - use current directory to prevent stack overflow
+    // Output file tracing configuration for monorepo
     outputFileTracingRoot: __dirname,
     outputFileTracingExcludes: {
       '*': [
+        'node_modules/**',
+        '.next/**',
+        'public/**',
         // Only exclude clearly unnecessary files
         '**/README*',
         '**/LICENSE*',
