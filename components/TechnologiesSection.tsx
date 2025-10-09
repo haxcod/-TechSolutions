@@ -203,6 +203,11 @@ export function TechnologiesSection() {
             loop={true}
             loopAdditionalSlides={6}
             direction="horizontal"
+            allowTouchMove={false}
+            simulateTouch={false}
+            touchRatio={0}
+            allowSlideNext={false}
+            allowSlidePrev={false}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -240,8 +245,8 @@ export function TechnologiesSection() {
             watchOverflow={false}
             observer={true}
             observeParents={true}
-            keyboard={{ enabled: true }}
-            grabCursor={true}
+            keyboard={{ enabled: false }}
+            grabCursor={false}
             onSwiper={handleSwiperInit}
             onAutoplayStop={handleAutoplayStop}
             onTouchEnd={handleTouchEnd}

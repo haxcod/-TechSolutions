@@ -21,13 +21,21 @@ export function useIntersectionObserver(
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isElementIntersecting = entry.isIntersecting
-        setIsIntersecting(isElementIntersecting)
         
+        // Batch state updates to prevent multiple re-renders
         if (isElementIntersecting && !hasIntersected) {
+          setIsIntersecting(true)
           setHasIntersected(true)
+        } else if (!once) {
+          setIsIntersecting(isElementIntersecting)
         }
       },
-      { threshold, rootMargin }
+      { 
+        threshold, 
+        rootMargin,
+        // Use passive observation to prevent forced reflows
+        root: null
+      }
     )
 
     observer.observe(element)
@@ -35,7 +43,7 @@ export function useIntersectionObserver(
     return () => {
       observer.unobserve(element)
     }
-  }, [threshold, rootMargin, hasIntersected])
+  }, [threshold, rootMargin, hasIntersected, once])
 
   return {
     ref,

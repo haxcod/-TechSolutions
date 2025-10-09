@@ -1,22 +1,32 @@
-# Modern browsers that support ES2020+ features
+# Modern browsers that support ES2022+ features
 # This will reduce polyfills and bundle size significantly
 
-# Chrome 87+ (supports all modern JS features)
-Chrome >= 87
+# Chrome 94+ (supports Array.at, Object.hasOwn, etc.)
+Chrome >= 94
 
-# Firefox 78+ (supports all modern JS features)
-Firefox >= 78
+# Firefox 90+ (supports all modern JS features)
+Firefox >= 90
 
-# Safari 14+ (supports all modern JS features)
-Safari >= 14
+# Safari 15+ (supports all modern JS features including Array.at)
+Safari >= 15
 
-# Edge 88+ (supports all modern JS features)
-Edge >= 88
+# Edge 94+ (supports all modern JS features)
+Edge >= 94
 
 # Exclude legacy browsers to avoid unnecessary polyfills
 not IE 11
 not dead
 not op_mini all
+not < 0.5%
+
+# Support last 2 versions of modern browsers only
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+
+# Ensure we support browsers with >1% usage that are modern
+> 1% and supports es6-module
 
 # For production builds, target even more modern browsers
 [production]

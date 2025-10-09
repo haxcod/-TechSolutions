@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { contactConfig } from '@/config/contact'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = contactConfig.company.website
+  const baseUrl = 'https://haxcod.com'
   const currentDate = new Date().toISOString()
 
   return [

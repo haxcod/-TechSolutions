@@ -37,6 +37,15 @@ const nextConfig = withBundleAnalyzer({
     styledComponents: false,
   },
 
+    // Modern JavaScript Configuration
+  transpilePackages: ['swiper', 'framer-motion'],
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{member}}',
+      skipDefaultConversion: true,
+    },
+  },
+
   // Server Configuration
   serverExternalPackages: ['nodemailer', 'sharp'],
   
@@ -99,6 +108,10 @@ const nextConfig = withBundleAnalyzer({
     esmExternals: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
     reactCompiler: true,
+
+    // Modern JavaScript features
+    forceSwcTransforms: false,
+    swcTraceProfiling: false,
   },
 
   // Turbopack Configuration

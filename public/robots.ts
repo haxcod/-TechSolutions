@@ -1,8 +1,7 @@
 import type { MetadataRoute } from 'next'
-import { contactConfig } from '@/config/contact'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = contactConfig.company.website
+  const baseUrl = 'https://haxcod.com'
 
   return {
     rules: [

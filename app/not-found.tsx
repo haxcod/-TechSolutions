@@ -1,11 +1,8 @@
-'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Home, ArrowLeft, Search, Mail, Phone } from 'lucide-react'
-import { getCompanyName } from '@/config/contact'
 
 export default function NotFound() {
   return (
@@ -130,14 +127,15 @@ export default function NotFound() {
                 Email Support
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-              onClick={() => window.open('tel:+1-555-123-4567')}
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              Call Us
-            </Button>
+            <Link href="tel:+1-555-123-4567">
+              <Button 
+                variant="outline" 
+                className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Call Us
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -146,7 +144,7 @@ export default function NotFound() {
           <p className="text-gray-500 text-sm">
             Error Code: 404 | Page Not Found | 
             <Link href="/" className="text-blue-600 hover:text-blue-700 ml-1">
-              Return to {getCompanyName('name')}
+              Return to HaxCod
             </Link>
           </p>
         </div>

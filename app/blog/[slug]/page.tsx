@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Calendar, Clock, User, ArrowLeft, Share2, BookOpen, Tag } from 'lucide-react'
 import Link from 'next/link'
 import { formatBlogDate } from '@/lib/utils'
+import ShareButton from '@/components/ShareButton'
 
 interface BlogPost {
   id: number
@@ -245,10 +246,10 @@ export default async function BlogPost({ params }: PageProps) {
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Share this article</h3>
                     <p className="text-gray-600">Help others discover this content</p>
                   </div>
-                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                    <Share2 className="w-4 h-4 mr-2" />
-                    Share
-                  </Button>
+                  <ShareButton 
+                    title={post.title}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  />
                 </div>
               </div>
             </Card>
