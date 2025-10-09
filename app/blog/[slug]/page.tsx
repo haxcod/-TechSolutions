@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { notFound } from 'next/navigation'
 import { Card } from '@/components/ui/card'
@@ -131,6 +129,13 @@ const blogPosts: BlogPost[] = [
     slug: "cybersecurity-best-practices"
   }
 ]
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 interface PageProps {
   params: {

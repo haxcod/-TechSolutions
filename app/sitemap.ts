@@ -85,22 +85,47 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
-    // Blog pages (if you add a blog)
+    // Blog pages
     {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-    // Legal pages
+    // Individual blog posts
     {
-      url: `${baseUrl}/privacy-policy`,
+      url: `${baseUrl}/blog/future-of-web-development-2024`,
+      lastModified: '2024-01-15',
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/building-scalable-microservices`,
+      lastModified: '2024-01-12',
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/cybersecurity-best-practices`,
+      lastModified: '2024-01-10',
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    // Legal and policy pages
+    {
+      url: `${baseUrl}/privacy`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms-of-service`,
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/cookies`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
