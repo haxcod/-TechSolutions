@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
-import { useMemo, useRef } from 'react'
-import type { Swiper as SwiperType } from 'swiper'
+import { Autoplay, Pagination, EffectCoverflow } from 'swiper/modules'
+import { useMemo } from 'react'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/effect-coverflow'
 
 interface TechItemProps {
   name: string
@@ -19,45 +19,42 @@ interface TechItemProps {
   delay?: number
 }
 
-
 const TechItem = ({ name, category, icon, color }: TechItemProps) => {
-
   return (
     <div 
-      className={`relative group cursor-pointer`} 
+      className={`relative group cursor-pointer h-full py-6`} 
     >
-      <div className="relative bg-white/80 backdrop-blur-xs rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform active:scale-95 hover:scale-105">
+      <div className="relative bg-white/80 backdrop-blur-xs rounded-2xl p-8 border border-gray-100 shadow-lg transition-all duration-500 h-full flex flex-col justify-center">
         {/* Hover gradient overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
         
         {/* Glowing border effect */}
-        <div className={`absolute inset-0 rounded-2xl bg-linear-to-r ${color} opacity-0 group-hover:opacity-20 blur-xs transition-opacity duration-300`} />
+        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${color} opacity-0 group-hover:opacity-30 blur-sm transition-all duration-500`} />
         
         {/* Content */}
         <div className="relative z-10">
-          <div className="text-4xl mb-4 text-center transform group-hover:scale-110 transition-transform duration-300">
+          <div className="text-5xl mb-6 text-center transform group-hover:scale-110 transition-transform duration-500">
             {icon}
           </div>
-          <h3 className="font-semibold text-gray-800 text-center mb-2 text-lg group-hover:text-gray-900 transition-colors duration-300">
+          <h3 className="font-bold text-gray-800 text-center mb-3 text-xl group-hover:text-gray-900 transition-colors duration-300">
             {name}
           </h3>
           <div className="flex justify-center">
-            <span className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full backdrop-blur-xs">
+            <span className="text-sm text-gray-600 bg-gray-100 px-4 py-1.5 rounded-full backdrop-blur-xs font-medium">
               {category}
             </span>
           </div>
         </div>
 
         {/* Floating particles effect */}
-        <div className="absolute top-2 right-2 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
-        <div className="absolute bottom-3 left-3 w-1 h-1 bg-purple-400/40 rounded-full animate-ping" />
+        <div className="absolute top-3 right-3 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
+        <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-purple-400/40 rounded-full animate-ping" />
       </div>
     </div>
   )
 }
 
 export function TechnologiesSection() {
-  const swiperRef = useRef<SwiperType | null>(null)
   const technologies = useMemo(() => [
     { 
       name: 'React', 
@@ -145,31 +142,6 @@ export function TechnologiesSection() {
     }
   ], [])
 
-
-  const handleSwiperInit = (swiper: SwiperType) => {
-    swiperRef.current = swiper
-    // Force start autoplay
-    swiper.autoplay.start()
-  }
-
-  const handleAutoplayStop = () => {
-    // Restart autoplay when it stops
-    if (swiperRef.current) {
-      setTimeout(() => {
-        swiperRef.current?.autoplay.start()
-      }, 100)
-    }
-  }
-
-  const handleTouchEnd = () => {
-    // Restart autoplay after touch interaction
-    if (swiperRef.current) {
-      setTimeout(() => {
-        swiperRef.current?.autoplay.start()
-      }, 1000)
-    }
-  }
-
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden" dir="ltr">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -194,94 +166,59 @@ export function TechnologiesSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative py-12"
         >
           <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={20}
-            slidesPerView={2}
+            modules={[Autoplay, Pagination, EffectCoverflow]}
+            effect="coverflow"
+            grabCursor={false}
+            centeredSlides={true}
+            slidesPerView="auto"
             loop={true}
-            loopAdditionalSlides={6}
-            direction="horizontal"
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 150,
+              modifier: 2.5,
+              slideShadows: false,
+            }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+              stopOnLastSlide: false,
+            }}
+            pagination={{
+              clickable: false,
+              bulletClass: 'swiper-pagination-bullet',
+              bulletActiveClass: 'swiper-pagination-bullet-active',
+            }}
+            speed={800}
             allowTouchMove={false}
             simulateTouch={false}
             touchRatio={0}
-            allowSlideNext={false}
-            allowSlidePrev={false}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: false,
-              waitForTransition: true,
-              stopOnLastSlide: false
-            }}
-            pagination={{
-              clickable: true,
-              bulletClass: 'swiper-pagination-bullet',
-              bulletActiveClass: 'swiper-pagination-bullet-active',
-              renderBullet: (index, className) => {
-                return `<span class="${className} w-3 h-3 bg-blue-600"></span>`
-              }
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 3,
-                spaceBetween: 24
-              },
-              768: {
-                slidesPerView: 4,
-                spaceBetween: 28
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 32
-              },
-              1280: {
-                slidesPerView: 6,
-                spaceBetween: 36
-              }
-            }}
-            speed={600}
-            watchOverflow={false}
-            observer={true}
-            observeParents={true}
+            noSwiping={true}
+            noSwipingClass="swiper-slide"
             keyboard={{ enabled: false }}
-            grabCursor={false}
-            onSwiper={handleSwiperInit}
-            onAutoplayStop={handleAutoplayStop}
-            onTouchEnd={handleTouchEnd}
-            className="technologies-swiper !pb-12"
+            mousewheel={false}
+            className="technologies-swiper !pb-16"
           >
             {technologies.map((tech, index) => (
-              <SwiperSlide key={`${tech.name}-${index}`}>
+              <SwiperSlide key={`${tech.name}-${index}`} className="swiper-no-swiping">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="group"
+                  className="h-full"
                 >
-                  {/* <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${tech.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="text-2xl font-bold text-white">
-                        {tech.icon}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 text-center">
-                      {tech.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 text-center">
-                      {tech.description}
-                    </p>
-                  </div> */}
-
-                   <TechItem
-                  name={tech.name}
-                  category={tech.category}
-                  icon={tech.icon}
-                  color={tech.color}
-                  bgGradient={tech.bgGradient}
-                />
+                  <TechItem
+                    name={tech.name}
+                    category={tech.category}
+                    icon={tech.icon}
+                    color={tech.color}
+                    bgGradient={tech.bgGradient}
+                  />
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -290,22 +227,68 @@ export function TechnologiesSection() {
       </div>
 
       <style jsx global>{`
+        .technologies-swiper {
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          padding: 0 40px;
+        }
+        
+        .technologies-swiper .swiper-slide {
+          width: 280px !important;
+          height: 320px;
+          transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .technologies-swiper .swiper-slide-active {
+          transform: scale(1.15) !important;
+          z-index: 10;
+        }
+        
+        .technologies-swiper .swiper-slide:not(.swiper-slide-active) {
+          opacity: 0.5;
+          transform: scale(0.85);
+        }
+        
+        .technologies-swiper .swiper-slide-prev,
+        .technologies-swiper .swiper-slide-next {
+          opacity: 0.7;
+          transform: scale(0.9);
+        }
+        
+        .technologies-swiper .swiper-wrapper {
+          transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+        
         .technologies-swiper .swiper-pagination {
           bottom: 0 !important;
+          pointer-events: none;
         }
         
         .technologies-swiper .swiper-pagination-bullet {
-          width: 8px !important;
-          height: 8px !important;
+          width: 10px !important;
+          height: 10px !important;
           background: #d1d5db !important;
           opacity: 1 !important;
-          margin: 0 4px !important;
-           transition: transform 0.2s ease, background 0.2s ease !important;
+          margin: 0 6px !important;
+          transition: transform 0.3s ease, background 0.3s ease !important;
         }
         
         .technologies-swiper .swiper-pagination-bullet-active {
           background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
-          transform: scale(1.25) !important;
+          transform: scale(1.4) !important;
+        }
+        
+        @media (max-width: 640px) {
+          .technologies-swiper .swiper-slide {
+            width: 240px !important;
+            height: 280px;
+          }
+          
+          .technologies-swiper .swiper-slide-active {
+            transform: scale(1.1) !important;
+          }
         }
       `}</style>
     </section>

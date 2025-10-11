@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { ServicesHero } from '@/components/ServicesHero'
 import { getCompanyName } from '@/config/contact'
+import { serviceOffers } from '@/components/OffersSection'
 
 // Dynamic imports for heavy components with framer-motion
 const DetailedServices = dynamic(() => import('@/components/DetailedServices').then(mod => ({ default: mod.DetailedServices })), {
@@ -8,6 +9,10 @@ const DetailedServices = dynamic(() => import('@/components/DetailedServices').t
 })
 
 const ProcessSection = dynamic(() => import('@/components/ProcessSection').then(mod => ({ default: mod.ProcessSection })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
+
+const OffersSection = dynamic(() => import('@/components/OffersSection').then(mod => ({ default: mod.OffersSection })), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
@@ -26,6 +31,13 @@ export default function Services() {
       <ServicesHero />
       <DetailedServices />
       <ProcessSection />
+      <OffersSection 
+        title="Service Packages"
+        subtitle="Take advantage of our special service packages designed to deliver maximum value for your business needs."
+        offers={serviceOffers}
+        showTimer={true}
+        timerDays={10}
+      />
       <CTABanner />
     </div>
   )

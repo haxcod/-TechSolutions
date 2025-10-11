@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { AboutHero } from '@/components/AboutHero'
 import { getCompanyName } from '@/config/contact'
+import { consultationOffers } from '@/components/OffersSection'
 
 // Dynamic imports for heavy components with framer-motion
 const OurStory = dynamic(() => import('@/components/OurStory').then(mod => ({ default: mod.OurStory })), {
@@ -12,6 +13,10 @@ const ValuesSection = dynamic(() => import('@/components/ValuesSection').then(mo
 })
 
 const TeamSection = dynamic(() => import('@/components/TeamSection').then(mod => ({ default: mod.TeamSection })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
+
+const OffersSection = dynamic(() => import('@/components/OffersSection').then(mod => ({ default: mod.OffersSection })), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
 })
 
@@ -31,6 +36,13 @@ export default function About() {
       <OurStory />
       <ValuesSection />
       <TeamSection />
+      <OffersSection 
+        title="Expert Consultations"
+        subtitle="Get professional guidance from our experienced team. Book a consultation to discuss your project needs and technology strategy."
+        offers={consultationOffers}
+        showTimer={true}
+        timerDays={5}
+      />
       <CTABanner />
     </div>
   )

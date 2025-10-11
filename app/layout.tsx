@@ -4,7 +4,12 @@ import './globals.css'
 import Navbar  from '@/components/Navbar'
 import {Footer} from '@/components/Footer'
 import { StructuredData } from '@/components/StructuredData'
-import { getCompanyName, contactConfig } from '@/config/contact'
+import { getCompanyName, contactConfig, getPhoneNumber } from '@/config/contact'
+import dynamic from 'next/dynamic'
+
+const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton'), {
+  loading: () => null,
+})
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -125,6 +130,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppButton 
+          phoneNumber={getPhoneNumber('tel')}
+          message="Hi! I'm interested in your IT services. Can we discuss my project requirements?"
+        />
       </body>
     </html>
   )

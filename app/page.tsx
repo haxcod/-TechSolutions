@@ -4,6 +4,7 @@ import { ServicesOverview } from '@/components/ServicesOverview'
 import { PerformanceOptimizer } from '@/components/PerformanceOptimizer'
 import { StructuredData } from '@/components/StructuredData'
 import { StatsSection } from '@/components/StatsSection'
+import { serviceOffers } from '@/components/OffersSection'
 
 // Dynamic imports for heavy components with framer-motion and swiper
 const WhyChooseUs = dynamic(() => import('@/components/WhyChooseUs').then(mod => ({ default: mod.WhyChooseUs })), {
@@ -34,12 +35,22 @@ const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ 
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
+const OffersSection = dynamic(() => import('@/components/OffersSection').then(mod => ({ default: mod.OffersSection })), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
+})
+
 export default function Home() {
   return (
     <div className="pt-20">
       <PerformanceOptimizer />
       <Hero />
       <ServicesOverview />
+      <OffersSection 
+        title="Special Launch Offers"
+        subtitle="Get started with our premium development services at unbeatable prices. Limited time offers for new clients!"
+        offers={serviceOffers}
+        timerDays={7}
+      />
       <StatsSection />
       <WhyChooseUs />
       <TechnologiesSection />
