@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Clock, Star, Zap, Shield, ArrowRight, CheckCircle, Code, Smartphone, Cloud, Users, MessageSquare, Calendar } from 'lucide-react'
 
 interface Offer {
@@ -221,14 +222,16 @@ export function OffersSection({
               </ul>
 
               {/* CTA Button */}
-              <motion.button
-                className={`w-full bg-gradient-to-r ${offer.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center gap-2`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Started
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+              <Link href="/contact" className="block">
+                <motion.button
+                  className={`w-full bg-gradient-to-r ${offer.gradient} text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center gap-2`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Get Started
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -244,9 +247,11 @@ export function OffersSection({
           <p className="text-gray-600 mb-6">
             Need a custom solution? Let&apos;s discuss your project requirements.
           </p>
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-            Get Custom Quote
-          </button>
+          <Link href="/contact">
+            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
+              Get Custom Quote
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

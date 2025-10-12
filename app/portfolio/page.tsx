@@ -1,6 +1,8 @@
+'use client'
+
 import dynamic from 'next/dynamic'
 import { PortfolioHero } from '@/components/PortfolioHero'
-import { getCompanyName } from '@/config/contact'
+import { useState } from 'react'
 
 // Dynamic imports for heavy components
 const PortfolioGrid = dynamic(() => import('@/components/PortfolioGrid').then(mod => ({ default: mod.PortfolioGrid })), {
@@ -11,16 +13,26 @@ const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ 
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
-export const metadata = {
-  title: `Our Portfolio - Web & Mobile Development Projects | ${getCompanyName('name')}`,
-  description: 'Explore our portfolio of successful web development, mobile app development, and cloud solution projects. See how we\'ve helped businesses transform their digital presence.',
-}
+// Note: Metadata moved to layout.tsx since this is now a client component
 
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+
   return (
     <div className="pt-20">
-      <PortfolioHero />
-      <PortfolioGrid />
+      <PortfolioHero 
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
+      <PortfolioGrid 
+        selectedCategory={selectedCategory}
+        viewMode={viewMode}
+        onCategoryChange={setSelectedCategory}
+        onViewModeChange={setViewMode}
+      />
       <CTABanner />
     </div>
   )

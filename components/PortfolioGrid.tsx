@@ -112,19 +112,17 @@ const projects = [
 
 const categories = ['All', 'Web Development', 'Mobile Development', 'Cloud Solutions', 'Custom Software']
 
-export function PortfolioGrid() {
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+interface PortfolioGridProps {
+  selectedCategory: string
+  viewMode: 'grid' | 'list'
+  onCategoryChange: (category: string) => void
+  onViewModeChange: (mode: 'grid' | 'list') => void
+}
 
+export function PortfolioGrid({ selectedCategory, viewMode, onCategoryChange, onViewModeChange }: PortfolioGridProps) {
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory)
-
-  // Handle filter change
-  const handleCategoryChange = (category: string) => {
-    console.log('Filter clicked:', category)
-    setSelectedCategory(category)
-  }
 
   return (
     <section className="py-20 bg-white">
@@ -136,8 +134,9 @@ export function PortfolioGrid() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="flex flex-col lg:flex-row justify-between items-center mb-12 space-y-4 lg:space-y-0"
+          data-filters-section
         >
-          {/* Category Filters */}
+          {/* Category Filters - Interactive on desktop, display only on mobile */}
           <div className="flex flex-wrap gap-2">
             {categories.map((category) => {
               const count = category === 'All' 
@@ -147,39 +146,79 @@ export function PortfolioGrid() {
               return (
                 <button
                   key={category}
-                  onClick={() => handleCategoryChange(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  onClick={() => onCategoryChange(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hidden lg:block cursor-pointer hover:shadow-md ${
                     selectedCategory === category
-                      ? 'bg-blue-600 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-xs'
+                      ? 'bg-blue-600 text-white shadow-md hover:bg-blue-700'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   {category} ({count})
                 </button>
               )
             })}
+            
+            {/* Mobile display - non-interactive */}
+            <div className="lg:hidden flex flex-wrap gap-2">
+              {categories.map((category) => {
+                const count = category === 'All' 
+                  ? projects.length 
+                  : projects.filter(project => project.category === category).length
+                
+                return (
+                  <div
+                    key={category}
+                    className={`px-4 py-2 rounded-full text-sm font-medium ${
+                      selectedCategory === category
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700'
+                    }`}
+                  >
+                    {category} ({count})
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
-          {/* View Mode Toggle */}
+          {/* View Mode Toggle - Interactive on desktop, display only on mobile */}
           <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
             <button
-              onClick={() => setViewMode('grid')}
+              onClick={() => onViewModeChange('grid')}
               aria-label="Grid view"
-              className={`p-2 rounded-md transition-colors ${
+              className={`p-2 rounded-md transition-colors hidden lg:block cursor-pointer ${
                 viewMode === 'grid' ? 'bg-white shadow-xs' : 'hover:bg-gray-200'
               }`}
             >
               <Grid className="w-4 h-4" />
             </button>
             <button
-              onClick={() => setViewMode('list')}
+              onClick={() => onViewModeChange('list')}
               aria-label="List view"
-              className={`p-2 rounded-md transition-colors ${
+              className={`p-2 rounded-md transition-colors hidden lg:block cursor-pointer ${
                 viewMode === 'list' ? 'bg-white shadow-xs' : 'hover:bg-gray-200'
               }`}
             >
               <List className="w-4 h-4" />
             </button>
+            
+            {/* Mobile display - non-interactive */}
+            <div
+              aria-label="Grid view"
+              className={`p-2 rounded-md transition-colors lg:hidden ${
+                viewMode === 'grid' ? 'bg-white shadow-xs' : ''
+              }`}
+            >
+              <Grid className="w-4 h-4" />
+            </div>
+            <div
+              aria-label="List view"
+              className={`p-2 rounded-md transition-colors lg:hidden ${
+                viewMode === 'list' ? 'bg-white shadow-xs' : ''
+              }`}
+            >
+              <List className="w-4 h-4" />
+            </div>
           </div>
         </motion.div>
 

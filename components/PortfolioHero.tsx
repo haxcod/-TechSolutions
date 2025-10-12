@@ -4,8 +4,23 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Filter, Grid, List } from 'lucide-react'
 import Link from 'next/link'
+import { FilterModal } from '@/components/FilterModal'
+import { useState } from 'react'
 
-export function PortfolioHero() {
+interface PortfolioHeroProps {
+  selectedCategory: string
+  onCategoryChange: (category: string) => void
+  viewMode: 'grid' | 'list'
+  onViewModeChange: (mode: 'grid' | 'list') => void
+}
+
+export function PortfolioHero({ 
+  selectedCategory, 
+  onCategoryChange, 
+  viewMode, 
+  onViewModeChange 
+}: PortfolioHeroProps) {
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
   return (
   <section className="py-20 bg-linear-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -73,13 +88,28 @@ export function PortfolioHero() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-8 py-4 text-lg"
+                onClick={() => setIsFilterModalOpen(true)}
+              >
                 <Filter className="mr-2 w-5 h-5" />
                 Filter Projects
               </Button>
             </motion.div>
           </motion.div>
         </div>
+        
+        {/* Filter Modal */}
+        <FilterModal
+          isOpen={isFilterModalOpen}
+          onClose={() => setIsFilterModalOpen(false)}
+          selectedCategory={selectedCategory}
+          onCategoryChange={onCategoryChange}
+          viewMode={viewMode}
+          onViewModeChange={onViewModeChange}
+        />
       </div>
     </section>
   )
