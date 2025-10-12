@@ -11,6 +11,10 @@ const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton'), {
   loading: () => null,
 })
 
+const TawkToChat = dynamic(() => import('@/components/TawkToChat'), {
+  loading: () => null,
+})
+
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
@@ -134,6 +138,7 @@ export default function RootLayout({
           phoneNumber={getPhoneNumber('tel')}
           message="Hi! I'm interested in your IT services. Can we discuss my project requirements?"
         />
+        <TawkToChat />
       </body>
     </html>
   )

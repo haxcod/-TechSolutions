@@ -20,6 +20,10 @@ const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ 
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
+const PricingCalculator = dynamic(() => import('@/components/PricingCalculator').then(mod => ({ default: mod.PricingCalculator })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
+
 export const metadata = {
   title: `Our Services - Web Development, Mobile Apps & Cloud Solutions | ${getCompanyName('name')}`,
   description: 'Comprehensive IT services including web development, mobile app development, cloud solutions, and IT consulting. Expert team delivering scalable technology solutions.',
@@ -31,6 +35,7 @@ export default function Services() {
       <ServicesHero />
       <DetailedServices />
       <ProcessSection />
+      <PricingCalculator />
       <OffersSection 
         title="Service Packages"
         subtitle="Take advantage of our special service packages designed to deliver maximum value for your business needs."

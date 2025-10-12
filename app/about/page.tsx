@@ -24,6 +24,10 @@ const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ 
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
+const CustomerReviews = dynamic(() => import('@/components/CustomerReviews').then(mod => ({ default: mod.CustomerReviews })), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
+
 export const metadata = {
   title: `About Us - IT Services Company | ${getCompanyName('name')}`,
   description: `Learn about ${getCompanyName('name')}, a leading IT services company specializing in web development, mobile apps, and cloud solutions. Meet our expert team and discover our mission.`,
@@ -36,6 +40,7 @@ export default function About() {
       <OurStory />
       <ValuesSection />
       <TeamSection />
+      <CustomerReviews variant="full" />
       <OffersSection 
         title="Expert Consultations"
         subtitle="Get professional guidance from our experienced team. Book a consultation to discuss your project needs and technology strategy."

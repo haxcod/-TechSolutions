@@ -35,6 +35,10 @@ const CTABanner = dynamic(() => import('@/components/CTABanner').then(mod => ({ 
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
 
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup').then(mod => ({ default: mod.NewsletterSignup })), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
+})
+
 const OffersSection = dynamic(() => import('@/components/OffersSection').then(mod => ({ default: mod.OffersSection })), {
   loading: () => <div className="h-32 bg-gray-50 animate-pulse rounded-lg" />
 })
@@ -58,6 +62,11 @@ export default function Home() {
       <TeamPreview />
       <Testimonials />
       <BlogPreview />
+      <NewsletterSignup 
+        variant="hero"
+        title="Stay Ahead with Tech Insights"
+        subtitle="Join 5,000+ professionals getting weekly updates on the latest technology trends, project insights, and exclusive offers."
+      />
       <CTABanner />
       
       {/* FAQ Structured Data */}
