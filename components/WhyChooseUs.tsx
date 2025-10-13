@@ -43,9 +43,41 @@ const features = [
   }
 ]
 
+// Simplified stats data
+const stats = [
+  { label: 'Projects Completed', value: '500+' },
+  { label: 'Client Satisfaction', value: '98%' },
+  { label: 'Expert Developers', value: '50+' },
+  { label: 'Years Experience', value: '5+' },
+]
+
 export function WhyChooseUs() {
   return (
-<section className="py-20 bg-linear-to-br from-gray-50 to-blue-50">
+<section className="relative overflow-hidden py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+  {/* Section-wide subtle animated background */}
+  <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+    <motion.div
+      aria-hidden
+      initial={{ x: 0, y: 0 }}
+      animate={{ x: 24, y: -12 }}
+      transition={{ duration: 24, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
+      className="absolute -inset-[35%] bg-[radial-gradient(rgba(59,130,246,0.12)_2px,transparent_2px)] bg-[length:24px_24px]"
+    />
+    <motion.div
+      aria-hidden
+      initial={{ x: 0 }}
+      animate={{ x: -32 }}
+      transition={{ duration: 26, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
+      className="absolute -inset-[30%] bg-[linear-gradient(90deg,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[length:26px_26px]"
+    />
+    <motion.div
+      aria-hidden
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 1 }}
+      transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
+      className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.06),transparent_60%)]"
+    />
+  </div>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -97,24 +129,21 @@ Why Choose <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-t
           viewport={{ once: true }}
           className="mt-20"
         >
-          <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2">500+</div>
-                <div className="text-gray-600 font-medium">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-purple-600 mb-2">98%</div>
-                <div className="text-gray-600 font-medium">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-2">50+</div>
-                <div className="text-gray-600 font-medium">Expert Developers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-orange-600 mb-2">5+</div>
-                <div className="text-gray-600 font-medium">Years Experience</div>
-              </div>
+          <div className="relative mt-2 rounded-2xl p-6 sm:p-8">
+            <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {stats.map((s, idx) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{s.value}</div>
+                  <div className="text-gray-800 font-medium">{s.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>
